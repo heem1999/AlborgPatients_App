@@ -1,0 +1,376 @@
+ion-header {
+  ion-toolbar {
+    border-radius: 0px 0px 20px 20px;
+    --background: var(--ion-color-yellow);
+  }
+}
+ion-content {
+  .salon-info {
+    margin-bottom: 5px;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+    ion-thumbnail {
+      width: 74px;
+      height: 74px;
+      img {
+        border-radius: 5px;
+      }
+    }
+    ion-label {
+      h5 {
+        font-size: 18px;
+        font-family: "Fivo_sans_medium";
+        color: var(--ion-color-blue);
+      }
+      p {
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-dark-blue);
+      }
+      .rating-bar {
+        ion-icon {
+          font-size: 15px;
+          color: var(--ion-color-dark-blue1);
+          margin-right: 5px;
+        }
+        .active {
+          color: var(--ion-color-yellow);
+        }
+      }
+    }
+  }
+  .info-title {
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-secondary);
+    .discount-icon {
+      margin-bottom: -3px;
+      margin-right: 5px;
+    }
+    .draw-line {
+      border-bottom: 1px dashed var(--ion-color-yellow);
+      width: 56%;
+      margin-top: 6px;
+      margin-bottom: 20px;
+    }
+  }
+  .date-label {
+    font-size: 14px;
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-dark-blue);
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+  .service-div-en {
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    padding: 15px 7px 15px 12px;
+    border-left: 7px solid var(--ion-color-tertiary);
+    margin-bottom: 25px;
+    .service-name {
+      font-size: 18px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-bottom: 6px;
+      margin-top: 0px;
+      span {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+    .duration-text,
+    .description {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin: 5px 0px 0px 0px;
+      .circle-icon {
+        color: var(--ion-color-yellow);
+        font-size: 7px;
+        margin: 0px 6px;
+      }
+    }
+  }
+  .service-div-ar {
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    padding: 15px 7px 15px 12px;
+    border-right: 7px solid var(--ion-color-tertiary);
+    margin-bottom: 25px;
+    .service-name {
+      font-size: 18px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-bottom: 6px;
+      margin-top: 0px;
+      span {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+    .duration-text,
+    .description {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin: 5px 0px 0px 0px;
+      .circle-icon {
+        color: var(--ion-color-yellow);
+        font-size: 7px;
+        margin: 0px 6px;
+      }
+    }
+  }
+  .total-text {
+    font-size: 14px;
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-blue);
+    margin: 7px 0px;
+  }
+  .discount-text {
+    color: var(--ion-color-yellow);
+  }
+  .to-pay {
+    margin-top: 20px;
+  }
+  .duration-text {
+    font-size: 14px;
+    color: var(--ion-color-dark-blue);
+    font-family: "Fivo_sans_oblique";
+    margin: 0px 0px 20px;
+  }
+  .emp_lbl {
+    font-size: 16px;
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-yellow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px 0px 0px;
+    .arrow_btn {
+      --background: transparent;
+      --color: var(--ion-color-blue);
+      --box-shadow: none;
+      --padding-start: 0;
+      --padding-end: 0;
+      --ripple-color: transparent;
+      height: 18px;
+    }
+  }
+  .employee_div-EN {
+    margin-top: 5px;
+    ion-col {
+      display: flex;
+      padding-left: 0;
+      img {
+        height: 37px;
+        width: 37px;
+        border-radius: 3px;
+        min-width: 37px;
+      }
+      .info_div {
+        margin-left: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .info_div_not_available_employee_data {
+        background-color: rgb(253, 219, 219);
+        margin-left: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .check_ic {
+        font-size: 14px;
+        position: absolute;
+        background-color: var(--ion-color-yellow);
+        bottom: 8px;
+        right: -1px;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 8px;
+        right: -1px;
+        ion-icon {
+          width: 10px;
+          height: 10px;
+          color: var(--ion-color-white);
+        }
+      }
+      .img_div {
+        position: relative;
+      }
+    }
+  }
+  .employee_div-AR {
+    margin-top: 5px;
+    ion-col {
+      display: flex;
+      padding-right: 0;
+      img {
+        height: 37px;
+        width: 37px;
+        border-radius: 3px;
+        min-width: 37px;
+      }
+      .info_div {
+        margin-right: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .info_div_not_available_employee_data {
+        margin-right: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .check_ic {
+        font-size: 14px;
+        position: absolute;
+        background-color: var(--ion-color-yellow);
+        bottom: 8px;
+        right: -1px;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 8px;
+        right: -1px;
+        ion-icon {
+          width: 10px;
+          height: 10px;
+          color: var(--ion-color-white);
+        }
+      }
+      .img_div {
+        position: relative;
+      }
+    }
+  }
+}
+
+.Price-text {
+  color: #DD4146 ;
+ //font-family: "Fivo_sans_oblique";
+  
+}
+
+ion-item {
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+  --ripple-color: transparent;
+  ion-label {
+    h5 {
+      font-size: 18px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-bottom: 6px;
+      span {
+        font-size: 16px;
+        margin-top: 2px;
+      }
+    }
+    .duration-text,
+    .description {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-secondary);
+      margin-bottom: 0px;
+      .circle-icon {
+        color: var(--ion-color-yellow);
+        font-size: 7px;
+        margin: 0px 6px;
+      }
+    }
+  }
+}
+
+div[scrollx=true] {
+  // width: 10;
+   display: flex;
+   flex-wrap: nowrap;
+   overflow-x: auto;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+    .scroll-item {
+      flex: 0 0 auto;
+   }
+ }
+ 
+.container{
+  width: 100%;
+  
+}
+.thumbnail-en{
+  --size: 80px;
+  --border-radius: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-left: 1px solid var(--ion-color-secondary2);
+  
+}
+
+.thumbnail-ar{
+  --size: 80px;
+  --border-radius: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: 1px solid var(--ion-color-secondary2);
+  
+}
+
+

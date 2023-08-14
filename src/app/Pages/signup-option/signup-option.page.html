@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>Signup to continue</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-horizontal">
+  <ion-button expand="block" class="ion-no-margin btn-general" mode="md" (click)="doSignUp()">
+    Signup with Email
+  </ion-button>
+  <ion-button expand="block" fill="clear" shape="round" class="btn-social ion-no-margin" mode="md">
+    <div class="icon-section">
+      <ion-icon src="../../../assets/svg_icon/google.svg"></ion-icon>
+    </div>  
+   Continue with Google
+  </ion-button>
+  <ion-button expand="block" fill="clear" shape="round" class="btn-social ion-no-margin" mode="md">
+    <div class="icon-section">
+      <ion-icon src="../../../assets/svg_icon/facebook.svg"></ion-icon>
+    </div> 
+    Continue with Facebook  
+  </ion-button>
+  <p class="accont-label ion-text-center">Already have an account ?</p>
+  <a class="ion-text-center btn-signin" (click)="doSignIn()">Signin Now</a>
+</ion-content>

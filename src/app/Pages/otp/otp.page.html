@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin" *ngIf="is_SignupPage !== 'true'">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons (click)="closeModel()" slot="start" class="ion-no-margin" *ngIf="is_SignupPage == 'true'">
+      <ion-button icon-only   color="light">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title header-title *ngIf="is_SignupPage !== 'true'"> {{ 'SigninPage.text4' | translate }}</ion-title>
+    <ion-title header-title *ngIf="is_SignupPage == 'true'"> {{ 'otpPage.text6' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal ion-text-center">
+  <ion-icon class="otp-icon" src="../../../assets/svg_icon/otp.svg"></ion-icon>
+  <h5 class="info-title">{{ 'otpPage.text1' | translate }}</h5>
+  <p class="info-text">{{ 'otpPage.text2' | translate }} {{ count }}s</p>
+   
+
+  
+    <div class="otp-input-section-EN" *ngIf="lan == 'En'">
+      <ion-input maxlength="1" type="tel" custom-input autofocus #input name="a" #a [(ngModel)]="otp.a"
+        (keyup)="moveFocus($event, b, '') " [class.active]="otp.a">
+      </ion-input>
+
+      <ion-input #b name="b" custom-input [class.active]="otp.b" [(ngModel)]="otp.b" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, c, a)"></ion-input>
+      <ion-input #c name="c" [class.active]="otp.c" custom-input [(ngModel)]="otp.c" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, d, b)"></ion-input>
+      <ion-input #d name="d" [class.active]="otp.d" custom-input [(ngModel)]="otp.d" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, '', c)"></ion-input>
+    </div>
+    <div class="otp-input-section-EN2" *ngIf="lan == 'En'">
+      <ion-input custom-input-otp value="1" readonly> </ion-input>
+      <ion-input custom-input-otp value="2" readonly> </ion-input>
+      <ion-input custom-input-otp value="3" readonly> </ion-input>
+      <ion-input custom-input-otp value="4" readonly> </ion-input>
+    </div>
+
+    
+    <div class="otp-input-section-AR" *ngIf="lan !== 'En'">
+
+      <ion-input #d name="d" [class.active]="otp.d" custom-input [(ngModel)]="otp.d" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, '', c)"></ion-input>
+
+      <ion-input #c name="c" [class.active]="otp.c" custom-input [(ngModel)]="otp.c" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, d, b)"></ion-input>
+
+      <ion-input #b name="b" custom-input [class.active]="otp.b" [(ngModel)]="otp.b" type="tel" maxlength="1"
+        (keyup)="moveFocus($event, c, a)"></ion-input>
+        
+      <ion-input maxlength="1" type="tel" custom-input #input autofocus name="a" #a [(ngModel)]="otp.a"
+        (keyup)="moveFocus($event, b, '') " [class.active]="otp.a">
+      </ion-input>
+
+    </div>
+
+    <div class="otp-input-section-AR2" *ngIf="lan !== 'En'">
+      <ion-input custom-input-otp value="4" readonly> </ion-input>
+      <ion-input custom-input-otp value="3" readonly> </ion-input>
+      <ion-input custom-input-otp value="2" readonly> </ion-input>
+      <ion-input custom-input-otp value="1" readonly> </ion-input>
+    </div>
+   
+    
+    <p (click)="send_OPT()" class="info-text" *ngIf="lan == 'En'&&count==0">Resend verification code again <ion-icon name="reload-outline"></ion-icon></p>
+    <p (click)="send_OPT()" class="info-text" *ngIf="lan !== 'En'&&count==0">أعد إرسال رمز التحقق مرة أخرى <ion-icon name="reload-outline"></ion-icon></p>
+
+    <ion-button expand="block" class="ion-no-margin btn-general" (click)="doDone()" *ngIf="is_SignupPage !== 'true'">
+      {{ 'otpPage.text4' | translate }}
+    </ion-button>
+    <ion-button expand="block" class="ion-no-margin btn-general" (click)="doDone_OPT()" *ngIf="is_SignupPage == 'true'">
+      {{ 'otpPage.text4' | translate }}
+    </ion-button>
+
+  
+</ion-content>

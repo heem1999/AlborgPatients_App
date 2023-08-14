@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'otpPage.text9' | translate }}
+    </ion-title>    
+    <!--<ion-buttons slot="end" *ngIf="api.order_details.payment_status !== '2'" >
+      <ion-button *ngIf="lan == 'En'" color="blue2" (click)="presentActionSheet()">
+        Add receipt
+      </ion-button>
+      <ion-button *ngIf="lan !== 'En'" color="blue2" (click)="presentActionSheet()">
+        أضف إيصال
+      </ion-button>
+    </ion-buttons>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding-horizontal">
+  <ion-fab (click)="presentActionSheet()" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="featured-venues-section"
+      *ngFor="let item of data ">
+      <img [src]="item?.payment_notify_img" />
+      <ion-row>
+        <ion-col size="9">
+          <h6 *ngIf="lan == 'En'" class="salon-address">{{ 'otpPage.text8' | translate }} {{item?.upload_date | date:'dd, MMMM yyyy'}} - {{item?.upload_date | date:'h:mm a':'+0200':'EN'}} </h6>
+          <h6 *ngIf="lan !== 'En'" class="salon-address">{{ 'otpPage.text8' | translate }} {{item?.upload_date | date:'dd, MMMM yyyy':'+0200':'AR'}} - {{item?.upload_date | date:'h:mm a':'+0200':'AR'}} </h6>
+         
+
+        </ion-col>
+        <ion-col size="3">
+          <ion-button *ngIf="api.order_details.payment_status !== '2'" color="light" (click)="delete_payment_notification(item?.id)"> <ion-icon size="small" slot="icon-only" name="trash-outline"></ion-icon></ion-button>
+        </ion-col>
+        </ion-row>
+
+    </div>
+
+    <div no-data *ngIf="data?.length == 0">
+      <img src="../../../assets/Images/no-data-icon-10.jpg" alt="no data" />
+    </div>
+
+</ion-content>

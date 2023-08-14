@@ -1,0 +1,75 @@
+ion-header{
+    ion-toolbar{
+        --background: var(--ion-color-yellow);
+        --color: var(--ion-color-white);
+        --ripple-color: transparent;
+        --min-height: 76px;    
+        --background: var(--ion-color-yellow);
+        --color:var(--ion-color-white);
+        --ripple-color:transparent;
+        ion-title{
+            font-size: 22px;
+        }
+        .btn-close{
+            font-size: 25px;
+        }
+    }
+}
+ion-content{
+    ion-item{
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        margin-top: 13px;
+        ion-thumbnail{
+            height: 74px;
+            width:74px;
+            img{
+                border-radius: 5px;
+            }
+        }
+        ion-label{
+            h5{
+                font-size: 18px;
+                font-family: "Fivo_sans_medium";
+                color: var(--ion-color-blue);
+                margin-top: 0px;
+            }
+            p{
+                font-size: 14px;
+                font-family: "Fivo_sans_regular";
+                color: var(--ion-color-dark-blue);
+                margin: 0px;
+            }
+            .rating-bar{
+                ion-icon{
+                    color: var(--ion-color-dark-blue1);
+                    font-size: 15px;
+                    margin-right: 4px;
+                }
+                .active{
+                    color:var(--ion-color-yellow);
+                }
+            }
+        }
+    }
+
+    .note-text{
+        font-size: 14px;
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-dark-blue);
+        span{
+            color: var(--ion-color-blue);
+        }
+    }
+}
+ion-footer{
+    .btn-cencel{
+        font-size: 18px;
+        font-family: "Fivo_sans_medium";
+        height: 53px;
+        --background: var(--ion-color-red);
+        --background-activated: var(--ion-color-red);
+        --background-focused: var(--ion-color-red);
+        --box-shadow:none;
+    }
+}

@@ -1,0 +1,58 @@
+ion-header {
+    ion-toolbar {
+        border-radius: 0px 0px 20px 20px;
+        --background: var(--ion-color-yellow);
+    }
+  }
+  ion-content {
+    .btn-general{
+        height: 50px;
+        text-transform: inherit;
+        margin-top: 3rem;
+        --border-radius: 3px;
+    }
+    .btn-social{
+        height: 50px;
+        margin-top: 2.2rem;
+        border: 1px solid var(--ion-color-dark-blue);
+        font-size: 17px;
+        text-transform: inherit;
+        font-family: "Fivo_sans_medium";
+        border-radius: 3px;
+        --box-shadow: 0px 2px 6px rgba(0,0,0, 0.16);
+        --border-radius	: 3px;
+        --color	:var(--ion-color-blue);
+        --color-activated:var(--ion-color-blue);
+        --color-focused	:var(--ion-color-blue);
+        --ripple-color	:transparent;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        
+        .icon-section{
+            border-right: 1px solid var(--ion-color-dark-blue);
+            height: -webkit-fill-available;
+            width: 45px;
+            position: absolute;
+            left: 0px;
+            ion-icon{
+                font-size: 22px;
+                margin: 13px 0px;
+            }
+        }
+    }
+
+    .accont-label{
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-dark-blue);
+        margin-top: 40px;
+        margin-bottom: 0px;
+    }   
+    .btn-signin{
+        font-size: 16px;
+        font-family: "Fivo_sans_medium";
+        color: var(--ion-color-blue);
+        text-decoration: none;
+        margin: 5px auto;
+        display: block;
+    }
+  }

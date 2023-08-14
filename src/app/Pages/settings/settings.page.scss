@@ -1,0 +1,32 @@
+ion-header {
+    ion-toolbar {
+      border-radius: 0px 0px 20px 20px;
+      --background: var(--ion-color-yellow);
+    }    
+}
+ion-content{
+    --padding-top: 11px;
+    ion-list{
+        ion-item{
+            --padding-start: 0px;
+            --inner-padding-end: 0px;
+            ion-label{
+                font-size: 16px;
+                font-family: "Fivo_sans_medium";
+                color: var(--ion-color-blue);
+            }
+            ion-toggle{
+                --background:var(--ion-color-dark-blue2);
+                --background-checked:var(--ion-color-dark-blue);
+                --handle-background	:var(--ion-color-dark-blue);
+                --handle-background-checked	:var(--ion-color-yellow);
+            }
+            a{
+                text-decoration: none;
+                font-size: 14px;
+                font-family: "Fivo_sans_regular";
+                color:var(--ion-color-dark-blue);
+            }
+        }
+    }
+}

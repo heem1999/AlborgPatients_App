@@ -1,0 +1,12 @@
+ion-header {
+    ion-toolbar {
+      border-radius: 0px 0px 20px 20px;
+      --background: var(--ion-color-yellow);
+    }
+  }
+  ion-content{
+    agm-map{
+        height: 100%;
+        width: 100%;
+    }
+  }

@@ -1,0 +1,95 @@
+ion-header {
+    ion-toolbar {
+      border-radius: 0px 0px 20px 20px;
+      --background: var(--ion-color-yellow);
+    }
+  }
+  
+  ion-content {
+    
+    .otp-icon{
+        height:132px;
+        width:132px;
+        margin: 13vh 0px;
+    }
+    .info-title{
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-blue);
+        margin-top: 0px;
+    }
+
+    .info-text{
+        font-size: 14px;
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-dark-blue);
+    }
+    .otp-input-section-EN{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        ion-input{
+            margin-right: 16px; 
+            max-width: 50px;
+            --padding-start: 0px;
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+        
+    }
+    
+    .otp-input-section-AR{
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      ion-input{
+          margin-left: 16px; 
+          max-width: 50px;
+          --padding-start: 0px;
+          &:last-child{
+              margin-left: 0px;
+          }
+      }
+  }
+
+    .btn-general {
+      font-size: 16px;
+      height: 50px;
+      margin-top: 1.8rem;
+    } 
+
+
+    .otp-input-section-EN2{
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      ion-input{
+        justify-content: center;
+          margin-right: 16px; 
+          max-width: 50px;
+          --padding-start: 0px;
+          &:last-child{
+              margin-right: 0px;
+          }
+      }
+      
+  }
+
+  .otp-input-section-AR2{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    ion-input{
+        margin-left: 16px; 
+        max-width: 50px;
+        --padding-start: 0px;
+        &:last-child{
+            margin-left: 0px;
+        }
+    }
+}
+
+
+   
+  }
+  

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "431521893046",
+    "firebase_url": "https://bonita-59f5c.firebaseio.com",
+    "project_id": "bonita-59f5c",
+    "storage_bucket": "bonita-59f5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431521893046:android:1a8282aede3d17202db417",
+        "android_client_info": {
+          "package_name": "com.dara.bonita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431521893046-f13cp83nmanum7gllp5prs1rl4m53tc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD003qdNM-O70-HEgeofB3Th0V_p2Axh6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431521893046-f13cp83nmanum7gllp5prs1rl4m53tc1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "431521893046-btvrrp2jaffqo6nhg2g16h2507tqeg6j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dara.Bonita"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

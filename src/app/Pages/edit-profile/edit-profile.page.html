@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'ProfilePage.text4' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="profile-div">
+    <div class="camera-icon" (click)="presentActionSheet()">
+      <ion-icon name="camera-sharp"></ion-icon>
+    </div>
+    <div class="hexagon hexagon1">
+      <div class="hexagon-in1">
+        <div class="hexagon-in2"
+          [style.backgroundImage]="'url('+(imgProfile ?  imgProfile : 'http://placehold.it/100x100' )+')'">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form action="" #e="ngForm">
+    <p input-label>{{ 'SignupPage.text2' | translate }}</p>
+    <ion-input custom-input type="text" placeholder="{{ 'SignupPage.text2' | translate }}" [(ngModel)]="data.name" name="name" required></ion-input>
+
+    <p input-label>{{ 'SignupPage.text13' | translate }}</p>
+    <div class="custom-phone-input">
+
+      <ion-input custom-input type="tel" placeholder="{{ 'SignupPage.text13' | translate }}" [(ngModel)]="data.phone_no" name="phone" readonly>
+      </ion-input>
+    </div>
+
+    <p input-label>{{ 'SignupPage.text4' | translate }}</p>
+    <ion-input custom-input type="email" placeholder="{{ 'SignupPage.text4' | translate }}" [(ngModel)]="data.email" name="email"  readonly>
+    </ion-input>
+
+    <ion-button expand="block" class="ion-no-margin btn-general" [disabled]="!e.valid" (click)="updateProfile()">
+      {{ 'SignupPage.text10' | translate }}
+    </ion-button>
+  </form>
+</ion-content>

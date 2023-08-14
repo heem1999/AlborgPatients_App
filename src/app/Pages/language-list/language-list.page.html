@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'SettingsPage.text2' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-list>
+    <ion-radio-group [value]="lang_defualt" >
+    <ion-item *ngFor="let item of languageList" >
+      <ion-label >{{item.title}}</ion-label>
+      <!--<ion-toggle  slot="end" [(ngModel)]="item.isActive"  onChange="changeLang()"></ion-toggle>-->
+        <ion-radio [value]="item.lang" mode="ios" mode="md" slot="end" (click)="changeLang(item.lang)"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+  </ion-list>
+</ion-content>

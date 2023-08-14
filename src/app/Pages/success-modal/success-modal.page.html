@@ -1,0 +1,267 @@
+<ion-header class="ion-no-border" *ngIf="hideHeader">
+  <ion-toolbar>
+   <ion-buttons slot="start" class="ion-no-margin">
+    <ion-button (click)="close2()">
+        <ion-icon  name="close-circle-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title header-title *ngIf="lan == 'En'">Alert</ion-title>
+    <ion-title header-title *ngIf="lan !== 'En'">تنبيه</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="no-scroll">
+  <div *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&!new_verssion&&!system_block&&!booking_block">
+    
+    <!-- 
+      <ion-fab (click)="close()" vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+      <div class="text-section">
+      <h6 class="ion-text-center">
+        <br> <br><br> <br>
+        {{ 'SuccessModalPage.text1' | translate }} 
+      </h6>
+     <h2 class="ion-text-center">{{ 'SuccessModalPage.text2' | translate }} </h2>
+     <h2 class="ion-text-center">{{ 'SuccessModalPage.text1' | translate }} </h2>
+  
+     <ion-button expand="full" (click)="close()">
+      {{ 'SuccessModalPage.text3' | translate }} 
+    </ion-button>
+    <img  *ngFor="let subitem1 of imageViewer"  [src]=subitem1/>
+    
+     <ion-slides class="image-slider" loop="true" slidesPerView="1" height="100%" height="100%">
+      <ion-slide>
+        <img height="100%" height="100%" [src]="imageViewer" />
+      </ion-slide>
+    </ion-slides>
+<div class="container2">
+      <img src="../../../assets/Images/success-back.png" />
+    </div>
+    </div>-->
+    <div style="padding-top: .5rem;
+    position: relative;
+    text-align: center;
+    color: white;">
+      <img  src="../../../assets/svg_icon/deal-done.svg" />
+    </div>
+    <h5  class="ion-text-center service-name" > <b>{{ Booking_msg }}</b></h5>
+  </div>
+
+  <div
+    *ngIf="imageViewer"
+    class="swiper-zoom-container container"
+  >
+    <ion-fab  vertical="top" horizontal="end" slot="fixed"color="secondary">
+      <ion-fab-button size="small">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button  (click)="deleteAttachment()">
+          <ion-icon color="tertiary" name="trash-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button  (click)="close2()">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  
+    <img [src]="imageViewer" />
+  </div>
+
+  <div *ngIf="ViewStatusInfo">
+   
+    <ion-grid class="ion-text-center">
+      <ion-row class="header-row">
+        <ion-col>
+          <ion-text  *ngIf="lan == 'En'"><b>Status</b>  </ion-text>
+          <ion-text  *ngIf="lan !== 'En'"><b>الحالة</b>  </ion-text>
+        </ion-col>
+
+        <ion-col>
+          <ion-text  *ngIf="lan == 'En'"><b>Definition</b>  </ion-text>
+          <ion-text  *ngIf="lan !== 'En'"><b>التعريف</b>  </ion-text>
+        </ion-col>
+
+        <ion-col>
+          <ion-text class="ion-text-wrap" *ngIf="lan == 'En'"><b>To be actioned by</b>  </ion-text>
+          <ion-text class="ion-text-wrap"  *ngIf="lan !== 'En'"><b>يتم التصرف من قِبل</b>  </ion-text>
+        </ion-col>
+      </ion-row>  
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>UNDER REVIEWING</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"><b>قيد المراجعة</b>  </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Being Processed </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> يتم معالجتها </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'">Service Provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'">مقدم الخدمة </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>CONFIRMED</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>مؤكد</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> The booking has been approved by the service provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> تمت الموافقة على الحجز من قبل مزود الخدمة </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Service Provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> مقدم الخدمة </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>Approved</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>معتمد</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> The request is confirmed by the lab admin, the approval process is done by the client </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> يتم تأكيد الطلب من قبل مسؤول المختبر ، ويتم إجراء عملية الموافقة من قبل العميل</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Client </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> العميل </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>UNDER PROCESSING</b></ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>قيد المعالجة</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Our lab technician is on his way, he will contact you for a home visit </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> فني المختبر لدينا في طريقه ، وسيتصل بك من أجل زيارة منزلية</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Lab Technician </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> فنّي المعمل </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>SAMPLE COLLECTED</b></ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>جمعت العينة</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Our lab technician has visited the home and collected the samples and is on his way to deliver them to the lab </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> قام فني المختبر لدينا بزيارة المنزل وجمع العينات وهو في طريقه لتسليمها إلى المختبر</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Lab Technician </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> فنّي المعمل </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>COMPLETED</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>مكتمل</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> The service has been completed </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> تم الانتهاء من الخدمة </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Service Provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> مقدم الخدمة </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>CANCELED</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>ملغاة</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> The booking was canceled </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> تم إلغاء الحجز</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Client </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> العميل </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row1">
+        <ion-col>
+          <ion-text color="primary" *ngIf="lan == 'En'"><b>REJECTED</b>  </ion-text>
+          <ion-text color="primary" *ngIf="lan !== 'En'"> <b>مرفوض</b> </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> The booking has been canceled or rejected by the service provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> تم إلغاء الحجز أو رفضه من قبل مزود الخدمة </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text *ngIf="lan == 'En'"> Service Provider </ion-text>
+          <ion-text *ngIf="lan !== 'En'"> مقدم الخدمة </ion-text>
+        </ion-col>
+      </ion-row>
+     
+    </ion-grid>
+  </div>
+
+  <div *ngIf="ViewStatusInfo2">
+    <h5  class="ion-text-center service-name" > <b>{{ ViewStatusInfo2 }}</b></h5>    
+  </div>
+
+  <div *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&new_verssion&&!system_block&&!booking_block">
+    <div style="padding-top: .5rem;
+    position: relative;
+    text-align: center;
+    color: white;">
+      <img  src="../../../assets/svg_icon/new-star-svgrepo-com.svg" />
+    </div>
+    <h6 class="ion-text-center" *ngIf="lan == 'En'" ><a (click)="openlink(new_verssion['link'])" > {{ new_verssion['msg_en'] }}</a></h6>
+    <h6 class="ion-text-center" *ngIf="lan !== 'En'" ><a (click)="openlink(new_verssion['link'])">{{ new_verssion['msg_ar'] }}</a></h6>
+    
+  </div>
+  
+  
+  <div  *ngIf="system_block">
+    <div style="padding-top: .5rem;
+    position: relative;
+    text-align: center;
+    color: white;">
+      <img  src="../../../assets/svg_icon/maintenance.svg" />
+    </div>
+    <h6 class="ion-text-center" *ngIf="lan == 'En'" > {{ system_block }}</h6>
+    <h6 class="ion-text-center" *ngIf="lan !== 'En'" >{{ system_block }}</h6>
+  </div>
+
+  <div *ngIf="booking_block">
+    <div style="padding-top: .5rem;
+    position: relative;
+    text-align: center;
+    color: white;">
+      <img  src="../../../assets/svg_icon/appointment-missed.svg" />
+    </div>
+    <h6 class="ion-text-center" *ngIf="lan == 'En'" > {{ booking_block }}</h6>
+    <h6 class="ion-text-center" *ngIf="lan !== 'En'" >{{ booking_block }}</h6>
+    
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="close2()" expand="full"  class="ion-no-margin btn-general" *ngIf="!imageViewer&&ViewStatusInfo&&!ViewStatusInfo2&&!new_verssion&&!system_block&&!booking_block">{{ 'SuccessModalPage.text3' | translate }}</ion-button>
+
+
+  <ion-button (click)="close()" expand="full"  class="ion-no-margin btn-general" *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&!new_verssion&&!system_block&&!booking_block">{{ 'otpPage.text4' | translate }}</ion-button>
+
+  <ion-button (click)="close2()" expand="full" class="ion-no-margin btn-general" *ngIf="!imageViewer&&!ViewStatusInfo&&ViewStatusInfo2&&!new_verssion&&!system_block&&!booking_block">{{ 'SelectTimePage.text4' | translate }}</ion-button>
+
+  <ion-button vertical="bottom" (click)="openlink(new_verssion['link'])" expand="full" class="ion-no-margin btn-general" *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&new_verssion&&!system_block&&!booking_block">{{ 'SelectTimePage.text5' | translate }}</ion-button>
+
+  <ion-button vertical="bottom" (click)="closeBlocking()" expand="full" class="ion-no-margin btn-general" *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&!new_verssion&&!system_block&&booking_block">{{ 'SelectTimePage.text4' | translate }}</ion-button>
+
+  <ion-button expand="full" class="ion-no-margin btn-general" (click)="closeApp()" *ngIf="!imageViewer&&!ViewStatusInfo&&!ViewStatusInfo2&&!new_verssion&&system_block&&!booking_block">
+    {{ 'SelectTimePage.text4' | translate }}
+  </ion-button>
+
+</ion-footer>
+

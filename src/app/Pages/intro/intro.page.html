@@ -1,0 +1,100 @@
+<ion-content>
+  <ion-fab class="ion-margin" [horizontal]="direction=='En'? 'start':'end'" >
+    <ion-fab-button (click)="changeLang()" color="primary">
+      <ion-icon  src="../../../assets/svg_icon/translate.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+ 
+
+  <div class="x" *ngIf="direction=='En'">
+
+    <ion-slides pager="true" dir="ltr" [hidden]="IntroPageBack!=null">
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image1>
+
+      </ion-slide>
+
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image2>
+
+      </ion-slide>
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image3>
+
+
+
+      </ion-slide>
+
+    </ion-slides>
+    <ion-slides pager="true" dir="ltr" [hidden]="IntroPageBack==null">
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image1>
+
+      </ion-slide>
+
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image2>
+
+      </ion-slide>
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image3>
+
+      </ion-slide>
+
+    </ion-slides>
+    <ion-button expand="block" color="primary" tappable (click)="getstarted()">
+      <ion-icon slot="end" src="../../../assets/svg_icon/login-ar.svg" ></ion-icon>
+      {{'IntroPageGetStarted' | translate}}
+      
+
+    </ion-button>
+  </div>
+  <div class="x" *ngIf="direction!=='En'">
+
+    <ion-slides pager="true" dir="rtl" _rtl="true" [hidden]="IntroPageBack!=null">
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image1>
+
+      </ion-slide>
+
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image2>
+
+      </ion-slide>
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image3>
+
+
+      </ion-slide>
+
+    </ion-slides>
+
+
+    <ion-slides pager="true" dir="rtl" _rtl="true" [hidden]="IntroPageBack==null">
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image1>
+
+      </ion-slide>
+
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image2>
+
+      </ion-slide>
+      <ion-slide class="empitybackground" style="background-color:#ffffff">
+        <img [src]=image3>
+
+      </ion-slide>
+
+    </ion-slides>
+    <ion-button expand="block" color="primary" tappable (click)="getstarted()">
+     
+      <ion-icon slot="end" src="../../../assets/svg_icon/login-ar.svg"></ion-icon>
+    <b>{{'IntroPageGetStarted' | translate}} </b>
+
+    </ion-button>
+  </div>
+
+ 
+
+</ion-content>

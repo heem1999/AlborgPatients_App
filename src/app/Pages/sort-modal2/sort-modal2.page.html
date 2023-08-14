@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title header-title>{{ 'SortModal1Page.text7' | translate }}</ion-title>
+    <ion-buttons slot="end" class="ion-no-margin">
+      <ion-button (click)="closeModal()" mode="md" fill="clear" class="btn-close">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-list class="ion-no-padding">
+    <ion-radio-group [value]="category">
+      <ion-item mode="md" lines="full" *ngFor="let item of contract_classifications">
+        <ion-label *ngIf="lan !== 'En'">{{ item.name_ar }}</ion-label>
+        <ion-label *ngIf="lan == 'En'">{{ item.name_en }}</ion-label>
+        <ion-radio (click)="filter(item)" slot="start" value="{{ item.id }}" mode="md"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,150 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'ProfilePage.text1' | translate }}</ion-title>
+    <ion-buttons slot="end" class="ion-no-margin">
+      <!--<ion-button color="light" (click)="ViewStatusInfo()"> <ion-icon  slot="icon-only" name="help-circle-outline"></ion-icon></ion-button>-->
+      <ion-button color="light" (click)="reload()"> <ion-icon  slot="icon-only" name="reload-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="segment-section">
+    <a (click)="activeSegment='Upcoming'" [ngClass]="{active:activeSegment=='Upcoming'}">{{ 'MyAppointmentPage.text1' | translate }}</a>
+    <a (click)="activeSegment='Past'" [ngClass]="{active:activeSegment=='Past'}">{{ 'MyAppointmentPage.text2' | translate }}</a>
+    <a (click)="activeSegment='Cancel'" [ngClass]="{active:activeSegment=='Cancel'}">{{ 'MyAppointmentPage.text3' | translate }}</a>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-refresher slot="fixed" id="refresher" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div style="text-align: center;" >
+    <a  *ngIf="lan == 'En'" (click)="ViewStatusInfo()"> <ion-text color="tertiary"><u><b >What does the status mean?</b></u></ion-text> </a>
+    <a  *ngIf="lan !== 'En'" (click)="ViewStatusInfo()"><ion-text color="tertiary"><u><b >ماذا تعني الحالة؟</b></u></ion-text></a>
+  </div>
+  <div *ngIf="activeSegment=='Upcoming'" class="section">
+    <div class="no-data" *ngIf="data?.upcoming?.length == 0">
+      <ion-icon class="calendar-icon" src="../../../assets/svg_icon/no_appintment.svg"></ion-icon>
+      <h5>{{ 'MyAppointmentPage.text4' | translate }}</h5>
+      <p>{{ 'MyAppointmentPage.text5' | translate }} <br>
+        {{ 'MyAppointmentPage.text6' | translate }}</p>
+
+      <ion-button class="btn-general" (click)="gotoHome()">
+        {{ 'MyAppointmentPage.text7' | translate }} 
+      </ion-button>
+    </div>
+    <div class="appoinment-section" *ngFor="let item of data?.upcoming" (click)="viewDetail(item?.id)">
+      <div class="header-section">
+        <h6 *ngIf="lan == 'En'"><b>{{ item?.status_en }}</b></h6>
+        <h6 *ngIf="lan !== 'En'"><b>{{ item?.status_ar }}</b></h6>
+      </div>
+      <!--
+      <div *ngIf="item?.status==0" class="header-section-pending2">
+        <h6 *ngIf="item?.status==0"><b>{{ 'MyAppointmentPage.text9' | translate }}</b></h6>
+      </div>
+      <div *ngIf="item?.status==1" [class]='item?.status==1&&item?.payment_status==0?"header-section-pending":"header-section"'>
+        <h6 *ngIf="item?.status==1&&item?.payment_status==1||item?.payment_status==2"><b>{{ 'MyAppointmentPage.text8' | translate }}</b> </h6>
+        <h6 *ngIf="item?.status==1&&item?.payment_status==0"><b>{{ 'MyAppointmentPage.text18' | translate }} </b></h6>
+      </div>
+    -->
+      <div class="body-section">
+        <ion-item mode="md" lines="none">
+          <ion-label  *ngIf="lan == 'En'"  class="ion-text-wrap">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>Visit location:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>Request Date:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy'}} - {{item?.created_at | date :'hh:mm a'}}</p>
+          </ion-label>
+          <ion-label  *ngIf="lan !== 'En'"  class="ion-text-wrap">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>موقع الزيارة:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>تاريخ الطلب:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy':'+0200':'AR'}} - {{item?.created_at | date :'hh:mm a':'+0200':'AR'}}</p>
+          </ion-label>
+        </ion-item>
+      </div>
+      <div class="footer-section">
+        <p class="ion-no-margin">{{ 'MyAppointmentPage.text10' | translate }} : {{item?.total | number: '2.'}} {{ 'SDG' | translate }}<a [class]="floting"
+          (click)="viewDetail(item?.id)">{{ 'MyAppointmentPage.text16' | translate }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="activeSegment=='Past'" class="section">
+    <div class="no-data" *ngIf="data?.past?.length == 0">
+      <ion-icon class="calendar-icon" src="../../../assets/svg_icon/no_appintment.svg"></ion-icon>
+      <h5>{{ 'MyAppointmentPage.text11' | translate }}</h5>
+      <p>{{ 'MyAppointmentPage.text5' | translate }} <br>
+        {{ 'MyAppointmentPage.text6' | translate }}</p>
+
+      <ion-button class="btn-general" (click)="gotoHome()">
+        {{ 'MyAppointmentPage.text12' | translate }} 
+      </ion-button>
+    </div>
+    <div class="appoinment-section" *ngFor="let item of data?.past" (click)="viewDetail(item?.id)">
+      <div class="header-section">
+        <h6 *ngIf="lan == 'En'"><b>{{ item?.status_en }}</b></h6>
+        <h6 *ngIf="lan !== 'En'"><b>{{ item?.status_ar }}</b></h6>
+      </div>
+      <div class="body-section">
+        <ion-item mode="md" lines="none">
+          <ion-label  *ngIf="lan == 'En'">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>Visit location:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>Request Date:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy'}} - {{item?.created_at | date :'hh:mm a'}}</p>
+          </ion-label>
+          <ion-label  *ngIf="lan !== 'En'">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>موقع الزيارة:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>تاريخ الطلب:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy':'+0200':'AR'}} - {{item?.created_at | date :'hh:mm a':'+0200':'AR'}}</p>
+          </ion-label>
+        </ion-item>
+      </div>
+      <div class="footer-section">
+        <p class="ion-no-margin">{{ 'MyAppointmentPage.text10' | translate }} : {{item?.total | number: '2.'}} {{ 'SDG' | translate }}<a [class]="floting"
+          (click)="viewDetail(item?.id)">{{ 'MyAppointmentPage.text16' | translate }}</a></p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="activeSegment=='Cancel'" class="section">
+    <div class="no-data" *ngIf="data?.cancel?.length == 0">
+      <ion-icon class="calendar-icon" src="../../../assets/svg_icon/no_appintment.svg"></ion-icon>
+      <h5>{{ 'MyAppointmentPage.text14' | translate }}</h5>
+      <p>{{ 'MyAppointmentPage.text5' | translate }} <br>
+        {{ 'MyAppointmentPage.text6' | translate }}</p>
+
+      <ion-button class="btn-general" (click)="gotoHome()">
+        {{ 'MyAppointmentPage.text12' | translate }} 
+      </ion-button>
+    </div>
+    <div class="appoinment-section" *ngFor="let item of data?.cancel" (click)="viewDetail(item?.id)">
+      <div class="header-section-cancel">
+        <h6 *ngIf="lan == 'En'"><b>{{ item?.status_en }}</b></h6>
+        <h6 *ngIf="lan !== 'En'"><b>{{ item?.status_ar }}</b></h6>
+      </div>
+      <div class="body-section">
+        <ion-item mode="md" lines="none">
+          <ion-label  *ngIf="lan == 'En'">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>Visit location:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>Request Date:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy'}} - {{item?.created_at | date :'hh:mm a'}}</p>
+          </ion-label>
+          <ion-label  *ngIf="lan !== 'En'">
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text2' | translate }}:</b></ion-text> {{item?.p_name}}</p>
+            <p><ion-text color="secondary"><b>{{ 'PaymentPage.text7' | translate }}:</b></ion-text> {{item?.visit_date}}</p>
+            <p><ion-text color="secondary"><b>موقع الزيارة:</b></ion-text> {{item?.visit_loc_address_en}}</p>
+            <p><ion-text color="secondary"><b>تاريخ الطلب:</b></ion-text> {{item?.created_at | date :'dd MMMM yyyy':'+0200':'AR'}} - {{item?.created_at | date :'hh:mm a':'+0200':'AR'}}</p>
+          </ion-label>
+        </ion-item>
+      </div>
+      <div class="footer-section">
+        <p class="ion-no-margin">{{ 'MyAppointmentPage.text10' | translate }} : {{item?.total | number: '2.'}} {{ 'SDG' | translate }}<a [class]="floting"
+          (click)="viewDetail(item?.id)">{{ 'MyAppointmentPage.text16' | translate }}</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>

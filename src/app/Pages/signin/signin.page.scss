@@ -1,0 +1,37 @@
+ion-header {
+    ion-toolbar {
+      border-radius: 0px 0px 20px 20px;
+      --background: var(--ion-color-yellow);
+    }
+  }
+  
+  ion-content {
+    --padding-top: 10px;
+
+    .btn-forgot{
+        font-size: 16px;
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-blue);    
+        margin-top: 10px;
+    }
+    .btn-general {
+      font-size: 16px;
+      height: 50px;
+      margin-top: 5rem;
+    }
+    .accont-label {
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
+    .btn-signin {
+      font-size: 16px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      text-decoration: none;
+      margin: 5px auto;
+      display: block;
+    }
+  }
+  

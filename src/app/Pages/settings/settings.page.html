@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'SettingsPage.text' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-list>
+    <!--
+    <ion-item>
+      <ion-label>{{ 'SettingsPage.text1' | translate }}</ion-label>
+      <ion-toggle slot="end" (click)="dataChanged()" [(ngModel)]="data.noti"></ion-toggle>
+    </ion-item>
+     <ion-item>
+      <ion-label>Social Login</ion-label>
+      <a slot="end">Logout</a>
+    </ion-item> -->
+    <ion-item (click)="viewPage('/language-list')">
+      <ion-label>{{ 'SettingsPage.text2' | translate }}</ion-label>
+      <!--<a slot="end"></a>-->
+    </ion-item>
+    <ion-item (click)="viewPage('/change-password')">
+      <ion-label>{{ 'SettingsPage.text3' | translate }}</ion-label>
+    </ion-item>
+    <ion-item (click)="viewPage('/privacy-policy')">
+      <ion-label>{{ 'SettingsPage.text4' | translate }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

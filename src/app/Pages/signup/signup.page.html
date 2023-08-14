@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'SignupPage.text1' | translate }}</ion-title>
+    <ion-buttons slot="end" >
+      <ion-button color="light" (click)="changeLang()">
+        <ion-icon slot="icon-only" src="../../../assets/svg_icon/translate.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+ <!-- <ion-fab (click)="changeLang()" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon  src="../../../assets/svg_icon/translate.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+-->
+  <form action="" #f="ngForm">
+    <p input-label>{{ 'SignupPage.text2' | translate }}</p>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-input clear-input="true" custom-input type="text" placeholder="" [(ngModel)]="data.name" name="name" required></ion-input>
+    <!--<ion-button slot="end" class="btn-password-toggle ion-no-margin" fill="clear">
+      <ion-icon slot="icon-only" name="person"></ion-icon>
+    </ion-button>-->
+    </ion-item>
+    <p class="err" *ngIf="err?.name"><b>{{err?.name}}*</b></p>
+    <p input-label>{{ 'SignupPage.text3' | translate }}</p>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-input custom-input type="tel" placeholder="" [(ngModel)]="data.phone_no" name="phone" required>
+      </ion-input>
+    </ion-item>
+    <p class="err" *ngIf="err?.phone_no && lan == 'En'" ><b>{{err?.phone_no.err}}*</b></p>
+    <p class="err" *ngIf="err?.phone_no && lan !== 'En'"><b>*{{err?.phone_no.err_ar}}</b></p>
+<!--
+    <p input-label>{{ 'SignupPage.text4' | translate }}</p>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-input custom-input type="email" placeholder="" [(ngModel)]="data.email" name="email" required></ion-input>
+      <ion-button  slot="end" class="btn-password-toggle ion-no-margin" fill="clear">
+        <ion-icon slot="icon-only" name="at-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <p class="err" *ngIf="err?.email">{{err?.email}}*</p>
+  -->
+    <p input-label>{{ 'SignupPage.text5' | translate }}</p>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-input custom-input [type]="showpassword ? 'text' : 'password'" placeholder=""
+      [(ngModel)]="data.password" name="password" required>
+    </ion-input>
+    <ion-button slot="end" class="btn-password-toggle ion-no-margin" fill="clear" (click)="togelPassword()">
+      <ion-icon slot="icon-only" [name]="showpassword ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-button>
+    </ion-item>
+    <p class="err" *ngIf="err?.password && lan == 'En'" ><b>{{err?.password.err}}*</b></p>
+    <p class="err" *ngIf="err?.password && lan !== 'En'"><b>*{{err?.password.err_ar}}</b></p>
+
+    <p input-label>{{ 'ChangePasswordPage.text6' | translate }}</p>
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-input custom-input class="input-ar" [type]="cshowpassword ? 'text' : 'password'" placeholder=""
+      [(ngModel)]="data.password_confirmation" name="password_confirmation" required>
+    </ion-input>
+    <ion-button slot="end" class="btn-password-toggle ion-no-margin" fill="clear" (click)="togelPassword2()">
+      <ion-icon slot="icon-only" [name]="cshowpassword ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-button>
+    </ion-item>
+
+    <p input-label>{{ 'ChangePasswordPage.text7' | translate }} : &nbsp;</p>
+      <ion-radio-group value="Male">
+        <ion-radio  mode="ios" mode="md" value="Male" (click)="sexType('Male')"></ion-radio>
+        {{ 'ChangePasswordPage.text8' | translate }}
+        <ion-radio  mode="ios" mode="md" value="Female" (click)="sexType('Female')"></ion-radio>
+        {{ 'ChangePasswordPage.text9' | translate }}
+    </ion-radio-group>
+  
+   
+    <p class="err" *ngIf="err?.password_confirmation"><b>{{err?.password_confirmation}}*</b></p>
+
+    <div *ngIf="lan == 'En'" class="styled-input-single-EN">
+      <input type="checkbox" name="agree_terms" id="agree_terms" [(ngModel)]="agree_terms" required />
+      <label for="agree_terms" ><u (click)="viewprivacyPage()">{{ 'SignupPage.text9' | translate }}</u></label>
+    </div> 
+
+    <div *ngIf="lan !== 'En'" class="styled-input-single-AR" dir="rtl"  >
+      <input type="checkbox" name="agree_terms" id="agree_terms" [(ngModel)]="agree_terms" required />
+      <label for="agree_terms" ><u (click)="viewprivacyPage()">{{ 'SignupPage.text9' | translate }}</u></label>
+    </div>
+
+    <ion-button expand="block" class="ion-no-margin btn-general" (click)="SignupPageOTP()" [disabled]="!f.valid">
+      {{ 'SignupPage.text6' | translate }}
+    </ion-button>
+  </form>
+  <p class="accont-label ion-text-center">{{ 'SignupPage.text7' | translate }}</p>
+  <a class="ion-text-center btn-signin" ><b><u (click)="doSignIn()">{{ 'SignupPage.text8' | translate }}</u></b> <u  (click)="goHome()">{{ 'SignupPage.text12' | translate }} <ion-icon name="home"></ion-icon></u></a>
+  
+  
+</ion-content>

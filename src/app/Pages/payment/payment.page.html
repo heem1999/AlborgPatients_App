@@ -1,0 +1,110 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'PaymentPage.text1' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <p input-label> </p>
+    <ion-input clear-input="true" custom-input type="text" placeholder="{{ 'PaymentPage.text2' | translate }}" [(ngModel)]="data.name">
+      <b class="err">*</b>
+    </ion-input>
+    <p class="err" *ngIf="err?.name">{{err?.name}}*</p>
+
+
+    <ion-row>
+      <ion-col size="6">
+        <p input-label> </p>
+        <ion-input custom-input type="number" placeholder="{{ 'PaymentPage.text3' | translate }}" [(ngModel)]="data.age">
+          <b class="err">*</b>
+        </ion-input>
+      <p class="err" *ngIf="err?.age">{{err?.age}}*</p>
+      </ion-col>
+      <ion-col size="6">
+        <p input-label><b class="err">*</b> {{ 'PaymentPage.text4' | translate }} </p>
+          <ion-radio-group input-label value="">
+            <ion-radio  mode="ios" mode="md" value="Male" (click)="sexType('Male')"></ion-radio>
+            {{ 'ChangePasswordPage.text8' | translate }}
+            <ion-radio  mode="ios" mode="md" value="Female" (click)="sexType('Female')"></ion-radio>
+            {{ 'ChangePasswordPage.text9' | translate }}
+        </ion-radio-group>
+      <p class="err" *ngIf="err?.sex">{{err?.sex}}*</p>
+      </ion-col>
+    </ion-row>
+
+    <p input-label>{{ 'PaymentPage.text55' | translate }}</p>
+    <ion-row class="ion-no-padding">
+      <ion-col size="6">
+        <ion-input custom-input type="tel" placeholder="{{ 'PaymentPage.text5' | translate }}" [(ngModel)]="data.Phone1" >
+          <b class="err">*</b>
+        </ion-input>
+        <p class="err" *ngIf="err?.Phone1">{{err?.Phone1}}*</p>
+      </ion-col>
+      <ion-col size="6">
+        <ion-input custom-input type="tel" placeholder="{{ 'PaymentPage.text6' | translate }}" [(ngModel)]="data.Phone2" ></ion-input>
+        <p class="err" *ngIf="err?.Phone2">{{err?.Phone2}}*</p>
+      </ion-col>
+    </ion-row>
+
+    <p input-label>{{ 'PaymentPage.text7' | translate }} </p> 
+    <ion-row >
+      <ion-col size="3">
+        <!-- icon-only fill="clear" -->
+        <ion-button  (click)="selectDate()">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col >
+        <ion-input readonly custom-input type="text" placeholder="{{ 'PaymentPage.text7' | translate }}" [(ngModel)]="data.visit_date" >
+          <b class="err">*</b>
+        </ion-input>
+        <p class="err" *ngIf="err?.visit_date">{{err?.visit_date}}*</p>
+      </ion-col>
+    </ion-row>
+
+    <p input-label><b class="err">*</b> {{ 'PaymentPage.text12' | translate }} </p>
+    <ion-select (ionChange)="handleChange($event)" custom-input interface="action-sheet" placeholder="Select Your city" *ngIf="lan == 'En'">
+      <ion-select-option [value]="item.id" *ngFor="let item of api.Areas;">{{ item.name_en }}</ion-select-option>
+    </ion-select>
+    <ion-select (ionChange)="handleChange($event)" custom-input interface="action-sheet" placeholder="حدد مدينتك" *ngIf="lan !== 'En'">
+      <ion-select-option [value]="item.id" *ngFor="let item of api.Areas;">{{ item.name_ar }}</ion-select-option>
+    </ion-select>
+    <p class="err" *ngIf="err?.area">{{err?.area}}*</p>
+
+
+    <p input-label> <b class="err">*</b> {{ 'PaymentPage.text11' | translate }} </p>
+    <ion-row >
+      <ion-col size="3">
+        <ion-button  (click)="selectLocation()">
+          <ion-icon name="pin-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-textarea readonly custom-input  placeholder="{{ 'PaymentPage.text11' | translate }}" [(ngModel)]="data.visit_location.address_en"></ion-textarea>
+    <p class="err" *ngIf="err?.visit_location">{{err?.visit_location}}*</p>
+      </ion-col>
+    </ion-row>
+
+    <p input-label *ngIf="data.price_msg!==''"> </p>
+    <ion-textarea readonly *ngIf="data.price_msg!==''" class="home_visit"  placeholder="{{ 'PaymentPage.text9' | translate }}" [(ngModel)]="data.price_msg">
+    </ion-textarea>
+    <p class="duration-text" *ngIf="data.price_msg!==''"  (click)="showOrderDetails()">
+      <u> <ion-icon class="circle-icon" name="cart-outline"></ion-icon> {{ 'ConfirmPage.text12' | translate }} 
+        </u>
+        </p>
+
+   <p input-label> </p>
+      <ion-textarea clearOnEdit="true" custom-input  placeholder="{{ 'PaymentPage.text9' | translate }}" [(ngModel)]="data.notes"></ion-textarea>
+    <br>
+      <ion-button [disabled]=""
+      expand="full"
+      class=" btn-general"
+      (click)="done()"
+    >
+      {{ 'ConfirmPage.text10' | translate }}
+    </ion-button>
+    
+</ion-content>

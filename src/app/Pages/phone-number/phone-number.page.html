@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>Phone Number</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <p class="info-text">Please provide your mobile number to confirm
+    your appointment booking.</p>
+  <form action="">
+    <p input-label>Phone</p>
+    <div class="custom-phone-input">
+      <ion-select appNoArrow value="+91" [interfaceOptions]="customOptions">
+        <ion-select-option value="+44" selected>+44</ion-select-option>
+        <ion-select-option value="+91">+91</ion-select-option>
+        <ion-select-option value="+92">+92</ion-select-option>
+      </ion-select>
+      <ion-input custom-input type="tel" placeholder="Phone"></ion-input>
+    </div>
+
+    <ion-button expand="block" class="ion-no-margin btn-general" (click)="doContinue()">
+      Continue
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-tabs (ionTabsWillChange)="getSelectedTab()">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon
+        src="{{activeTab == '/tabs/home' ? '../../assets/svg_icon/active_compass_tab.svg': '../../assets/svg_icon/compass_tab.svg'}}">
+      </ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="appointment">
+      <ion-icon
+        src="{{activeTab == '/tabs/appointment'? '../../assets/svg_icon/active_calendar_tab.svg' : '../../assets/svg_icon/calendar_tab.svg'}}">
+      </ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon
+        src="{{activeTab == '/tabs/profile'? '../../assets/svg_icon/active_profile_tab.svg' : '../../assets/svg_icon/profile_tab.svg'}}">
+      </ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

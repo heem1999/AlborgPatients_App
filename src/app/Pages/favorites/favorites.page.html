@@ -1,0 +1,91 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'ProfilePage.text2' | translate }}</ion-title>
+  </ion-toolbar>
+  <div class="segment-section">
+    <a (click)="activeSegment='About Us'" [ngClass]="{active:activeSegment=='About Us'}">{{ 'ProfilePage.text2' | translate }}</a>
+   <b class="fasel">|</b> 
+    <a (click)="activeSegment='Our Branches'" [ngClass]="{active:activeSegment=='Our Branches'}">{{ 'ProfilePage.text22' | translate }}</a>
+  </div>
+</ion-header>
+
+<ion-content >
+  
+  <div no-data *ngIf="data?.length == 0">
+    <img src="../../../assets/Images/no-data-icon-10.jpg" alt="no data">
+  </div>
+  
+  <div *ngIf="activeSegment=='About Us'" class="ion-no-padding">
+    <ion-card class="ion-no-padding">
+      <img [src]="app_General_Setting['logo']" />
+      <ion-card-header>
+         <!--
+        <ion-card-title *ngIf="lan == 'En'">Al Borg Diagnostics</ion-card-title>
+        <ion-card-title *ngIf="lan !== 'En'">مختبرات البرج</ion-card-title>
+       <ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+      </ion-card-header>
+      <ion-card-content *ngIf="lan == 'En'">
+        {{ app_General_Setting.about_en }}
+      </ion-card-content>
+      <ion-card-content *ngIf="lan !== 'En'">
+        {{ app_General_Setting.about_ar }}
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+  <div *ngIf="activeSegment=='Our Branches'" class="ion-padding">
+    <br>
+    <div [class]="lan !== 'En'?'service-div-ar':'service-div-en'" *ngFor="let item of appBranches" >
+      <h5 class="service-name" *ngIf="lan == 'En'">
+        {{item?.name_en}}, {{ item.region.name_en }}
+        <span >
+          <ion-icon name="pin" slot="icon-only" color="secondary" (click)="viewInMap(item)"></ion-icon></span>
+      </h5>
+      <h5 class="service-name" *ngIf="lan !== 'En'">
+        {{item?.name_ar}}, {{ item.region.name_ar }}
+        <span >
+          <ion-icon name="pin" slot="icon-only" color="secondary" (click)="viewInMap(item)"></ion-icon></span>
+      </h5>
+      <p class="emp_lbl">
+        {{ 'ProfilePage.text44' | translate }}
+        <ion-button class="arrow_btn" (click)="item.showContract = !item.showContract">
+          <ion-icon
+            [name]="item.showContract ? 'chevron-up':'chevron-down'"
+          ></ion-icon>
+        </ion-button>
+      </p>
+      <div *ngIf="lan == 'En'">
+        <div class="employee_div-EN" *ngIf="item?.showContract">
+          <ion-row>
+            <ion-col size="12">
+              <div class="info_div"> 
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.phone1}} - {{item?.phone2}}</h3>
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.Address_en}}</h3>
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.email}}</h3>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+      <div *ngIf="lan !== 'En'">
+        <div class="employee_div-AR" *ngIf="item?.showContract">
+          <ion-row>
+            <ion-col size="12">
+              <div class="info_div">
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.phone1}} - {{item?.phone2}}</h3>
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.Address_ar}}</h3>
+                <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{item?.email}}</h3>
+                            </div>
+            </ion-col>
+           
+          </ion-row>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</ion-content>

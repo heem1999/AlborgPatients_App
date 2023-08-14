@@ -1,0 +1,74 @@
+ion-header {
+  ion-toolbar {
+    border-radius: 0px 0px 20px 20px;
+    --background: var(--ion-color-yellow);
+  }
+}
+
+ion-content {
+  
+  .styled-input-single {
+    margin: 14px 0px;
+    label {
+      font-size: 16px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-blue);
+      cursor: pointer;
+      &:before,
+      &:after {
+        top: 7px;
+      }
+      &:before {
+        left: 1px;
+      }
+      &:after {
+        left: 5px;
+      }
+    }
+  }
+  .btn-general {
+    font-size: 16px;
+    //height: 50px;
+    //margin-top: 2.2rem;
+  }
+  .accont-label {
+    font-family: "Fivo_sans_regular";
+    color: var(--ion-color-dark-blue);
+    margin-top: 25px;
+    margin-bottom: 0px;
+  }
+  .btn-signin {
+    font-size: 16px;
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-blue);
+    text-decoration: none;
+    margin: 5px auto;
+    display: block;
+  }
+
+  .home_visit {
+    border: 2px solid var(--ion-color-secondary);
+    border-radius: 15px;
+    
+    //font-size: 18px;
+    font-family: "Fivo_sans_regular";
+    color: var(--ion-color-tertiary);
+    --padding-top: 14px;
+    --padding-bottom: 14px;
+    --padding-start: 16px;
+   
+  }
+
+
+  .duration-text{
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-secondary);
+      margin: 5px 0px 0px 0px;
+      .circle-icon {
+        color: var(--ion-color-secondary);
+        font-size: 14px;
+        margin: 0px 3px;
+      }
+    }
+}

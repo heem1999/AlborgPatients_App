@@ -1,0 +1,252 @@
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)" class="ion-padding-bottom">
+  <div class="header-image-section">
+    <ion-header class="ion-no-border" [style.backgroundColor]="state == 1 ? '' : 'rgba(0,0,0,0.7)'">
+      <ion-toolbar>
+        <ion-buttons slot="start" class="ion-no-margin">
+          <ion-back-button  defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back2"></ion-back-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="isfavrite(data?.id)" mode="md" fill="clear" class="btn-like">
+            <ion-icon slot="icon-only" name="heart-outline" *ngIf="data?.fev==0"></ion-icon>
+            <ion-icon slot="icon-only" name="heart" class="fav_ic" *ngIf="data?.fev==1"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <!--<img [src]="data?.imageUri" alt="" />-->
+    <img defaultImage="../../../assets/Images/loading.gif" [lazyLoad]="data?.imageUri" />
+  </div>
+  <div class="ion-padding-horizontal salon-detail-section" *ngIf="lan == 'En'">
+    <h5 class="salon-name">
+      {{data?.name}}<ion-icon (click)="openSalonLocation(data)" class="ion-float-right" src="../../../assets/svg_icon/pin.svg">
+      </ion-icon>
+    </h5>
+    <p class="salon-address ion-no-margin">{{data?.address}}</p>
+    <p class="ion-no-margin rate-label">
+      <ion-icon name="star"></ion-icon> {{data?.avg_rating}} Great
+      ({{data?.reviews_count}})
+    </p>
+    <hr />
+    <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/clock-svgrepo-com.svg"></ion-icon>
+      {{data?.start_time }} - {{data?.end_time }}
+      <!-- <ion-icon name="chevron-down" class="arrow-down ion-float-right">
+      </ion-icon> -->
+    </p>
+    <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/phone.svg"></ion-icon>
+      {{data?.phone1 }} - {{data?.phone2 }} 
+      <!-- <ion-icon name="chevron-down" class="arrow-down ion-float-right">
+      </ion-icon> -->
+    </p>
+    <!-- <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/flash.svg"></ion-icon> Instant
+      Confirmation
+    </p> -->
+    <p class="detail-line" *ngIf="data?.for_who==0">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text3' | translate }}
+    </p>
+    <p class="detail-line" *ngIf="data?.for_who==1">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text4' | translate }}
+    </p>
+    <p class="detail-line" *ngIf="data?.for_who==2">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text5' | translate }}
+    </p>
+    <hr />
+    <p class="salon-description">{{data?.description}}</p>
+    <hr />
+    <h6 class="review-title">{{ 'SalonDetailPage.text2' | translate }}</h6>
+    <p class="ion-no-margin rate-label">
+      <ion-icon name="star"></ion-icon> {{data?.avg_rating}} <!--Great-->
+      ({{data?.reviews_count}})
+    </p>
+    <p *ngIf="data?.reviews?.length==0" class="no_data_p">
+      {{ 'HomePage.text5' | translate }}
+    </p>
+    <ion-item *ngFor="let item of data?.reviews" lines="none" class="review-item">
+      <ion-thumbnail slot="start">
+        <img [src]="item.user?.imageUri" alt="" />
+      </ion-thumbnail>
+      <ion-label>
+        <h5>{{item?.user?.name}}</h5>
+        <p class="date-label">{{item.created_at |date:'dd MMM yyyy'}}</p>
+        <p class="ion-text-wrap review-text">{{item.cmt}}</p>
+        <div class="rating-bar">
+          <ion-icon [ngClass]="{'active':item.star >= 1}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 2}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 3}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 4}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 5}" name="star"></ion-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <!-- <h6 class="location-title">Additional Locations</h6>
+    <div class="additional-location-section">
+      <div class="main-section" *ngFor="let item of salonList" >
+        <div class="image-section">
+          <img [src]="item.image" alt="">
+          <div class="fix-label" *ngIf="item.type" >
+            Women only
+          </div>
+        </div>
+        <h6 class="salon-name">{{item.title}}</h6>
+        <p class="salon-address">{{item.address}}</p>
+        <ion-row>
+          <ion-col size="6" class="ion-no-padding">
+            <ion-icon name="star" class="star-icon"></ion-icon> <span class="everage-star-label">5.0 Great</span>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding">
+            <div class="circle"></div> <span class="total-rating-label">31 Rating</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <hr>
+    <h6 class="venues-title">Venues near Addictive Beauty</h6>
+    <div class="venues-near-section ion-margin-bottom">
+      <div class="main-section" *ngFor="let item of salonList" >
+        <div class="image-section">
+          <img [src]="item.image" alt="">
+          <div class="fix-label" *ngIf="item.type" >
+            Women only
+          </div>
+        </div>
+        <h6 class="salon-name">{{item.title}}</h6>
+        <p class="salon-address">{{item.address}}</p>
+        <ion-row>
+          <ion-col size="6" class="ion-no-padding">
+            <ion-icon name="star" class="star-icon"></ion-icon> <span class="everage-star-label">5.0 Great</span>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding">
+            <div class="circle"></div> <span class="total-rating-label">31 Rating</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div> -->
+  </div>
+  <div class="ion-padding-horizontal salon-detail-section" *ngIf="lan !== 'En'">
+    <h5 class="salon-name">
+      {{data?.name_ar}}<ion-icon (click)="openSalonLocation(data)" class="ion-float-left" src="../../../assets/svg_icon/pin.svg">
+      </ion-icon>
+    </h5>
+    <p class="salon-address ion-no-margin">{{data?.address_ar}}</p>
+    <p class="ion-no-margin rate-label">
+      <ion-icon name="star"></ion-icon> {{data?.avg_rating}} <!--Great-->
+      ({{data?.reviews_count}})
+    </p>
+    <hr />
+    <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/clock-svgrepo-com.svg"></ion-icon>
+      {{data?.start_time }} - {{data?.end_time }} 
+      
+      <!-- <ion-icon name="chevron-down" class="arrow-down ion-float-right">
+      </ion-icon> -->
+    </p>
+
+    <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/phone.svg"></ion-icon>
+      {{data?.phone1 }} - {{data?.phone2 }} 
+      <!-- <ion-icon name="chevron-down" class="arrow-down ion-float-right">
+      </ion-icon> -->
+    </p>
+
+    <!-- <p class="detail-line">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/flash.svg"></ion-icon> Instant
+      Confirmation
+    </p> -->
+    <p class="detail-line" *ngIf="data?.for_who==0">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text3' | translate }}
+    </p>
+    <p class="detail-line" *ngIf="data?.for_who==1">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text4' | translate }}
+    </p>
+    <p class="detail-line" *ngIf="data?.for_who==2">
+      <ion-icon class="detail-icon" src="../../../assets/svg_icon/unisex-svgrepo-com.svg"></ion-icon>
+      {{ 'SalonDetailPage.text5' | translate }}
+    </p>
+    <hr />
+    <p class="salon-description">{{data?.description_ar}}</p>
+    <hr />
+    <h6 class="review-title">{{ 'SalonDetailPage.text2' | translate }}</h6>
+    <p class="ion-no-margin rate-label">
+      <ion-icon name="star"></ion-icon> {{data?.avg_rating}} <!--Great-->
+      ({{data?.reviews_count}})
+    </p>
+    <p *ngIf="data?.reviews?.length==0" class="no_data_p">
+      {{ 'HomePage.text5' | translate }}
+    </p>
+    <ion-item *ngFor="let item of data?.reviews" lines="none" class="review-item">
+      <ion-thumbnail slot="start">
+        <img [src]="item.user?.imageUri" alt="" />
+      </ion-thumbnail>
+      <ion-label>
+        <h5>{{item?.user?.name}}</h5>
+        <p class="date-label">{{item.created_at |date:'dd MMM yyyy'}}</p>
+        <p class="ion-text-wrap review-text">{{item.cmt}}</p>
+        <div class="rating-bar">
+          <ion-icon [ngClass]="{'active':item.star >= 1}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 2}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 3}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 4}" name="star"></ion-icon>
+          <ion-icon [ngClass]="{'active':item.star >= 5}" name="star"></ion-icon>
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <!-- <h6 class="location-title">Additional Locations</h6>
+    <div class="additional-location-section">
+      <div class="main-section" *ngFor="let item of salonList" >
+        <div class="image-section">
+          <img [src]="item.image" alt="">
+          <div class="fix-label" *ngIf="item.type" >
+            Women only
+          </div>
+        </div>
+        <h6 class="salon-name">{{item.title}}</h6>
+        <p class="salon-address">{{item.address}}</p>
+        <ion-row>
+          <ion-col size="6" class="ion-no-padding">
+            <ion-icon name="star" class="star-icon"></ion-icon> <span class="everage-star-label">5.0 Great</span>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding">
+            <div class="circle"></div> <span class="total-rating-label">31 Rating</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <hr>
+    <h6 class="venues-title">Venues near Addictive Beauty</h6>
+    <div class="venues-near-section ion-margin-bottom">
+      <div class="main-section" *ngFor="let item of salonList" >
+        <div class="image-section">
+          <img [src]="item.image" alt="">
+          <div class="fix-label" *ngIf="item.type" >
+            Women only
+          </div>
+        </div>
+        <h6 class="salon-name">{{item.title}}</h6>
+        <p class="salon-address">{{item.address}}</p>
+        <ion-row>
+          <ion-col size="6" class="ion-no-padding">
+            <ion-icon name="star" class="star-icon"></ion-icon> <span class="everage-star-label">5.0 Great</span>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding">
+            <div class="circle"></div> <span class="total-rating-label">31 Rating</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div> -->
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button  expand="full" class="ion-text-wrap ion-no-margin btn-general" (click)="bookNow()">
+    {{ 'SalonDetailPage.text11' | translate }}
+  </ion-button>
+</ion-footer>

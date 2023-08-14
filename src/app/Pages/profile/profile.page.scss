@@ -1,0 +1,62 @@
+ion-header {
+ 
+  ion-toolbar {
+    border-radius: 0px 0px 20px 20px;
+    --background: var(--ion-color-yellow);
+    .btn-edit {
+      font-size: 10px;
+      --color: #ffffff;
+    }
+  }
+}
+ion-content {
+  .hexagon {
+    overflow: hidden;
+    visibility: hidden;
+    transform: rotate(120deg);
+    cursor: pointer;
+  }
+  .hexagon-in1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+  }
+  .hexagon-in2 {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-image: url('../../../assets/Images/profile.jpg'); //http://placekitten.com/100/90
+    visibility: visible;
+    transform: rotate(-60deg);
+  }
+
+  .hexagon1 {
+    width: 100px;
+    height: 90px;
+    margin: 0px auto;
+  }
+
+  .name-text {
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-blue);
+    margin-top: 10px;
+  }
+  ion-list {
+    margin-top: 2rem;
+    ion-item {
+      --padding-start: 8px;
+      ion-icon {
+        color: var(--ion-color-yellow);
+        font-size: 18px;
+        margin-right: 16px;
+      }
+      ion-label {
+        font-size: 16px;
+        font-family: "Fivo_sans_medium";
+        color: var(--ion-color-blue);
+      }
+    }
+  }
+}

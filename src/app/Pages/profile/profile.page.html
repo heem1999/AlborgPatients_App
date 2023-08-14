@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title header-title>{{ 'ProfilePage.text4' | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button  class="btn-edit" (click)="editProfile()">
+        <ion-icon slot="icon-only" src="../../../assets/svg_icon/edit.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div class="hexagon hexagon1">
+    <div class="hexagon-in1">
+      <div class="hexagon-in2"
+        [style.backgroundImage]="'url('+(data?.imageUri ? data?.imageUri : 'http://placehold.it/100x100' )+')'"></div>
+    </div>
+  </div>
+  <h5 class="name-text ion-text-center">{{data?.name}}</h5>
+  <ion-list>
+    <ion-item lines="full" (click)="viewPage('tabs/appointment')">
+      <ion-icon slot="start" src="../../../assets/svg_icon/calendar.svg"></ion-icon>
+      <ion-label>{{ 'ProfilePage.text1' | translate }}</ion-label>
+    </ion-item>
+    <ion-item lines="full" (click)="viewAbout()">
+      <ion-icon slot="start" src="../../../assets/svg_icon/about.svg"></ion-icon>
+      <ion-label>{{ 'ProfilePage.text2' | translate }}</ion-label>
+    </ion-item>
+    <ion-item lines="full" (click)="viewPage('/settings')">
+      <ion-icon slot="start" src="../../../assets/svg_icon/settings.svg"></ion-icon>
+      <ion-label>{{ 'SettingsPage.text' | translate }}</ion-label>
+    </ion-item>
+    <!-- <ion-item lines="full" (click)="viewPage('/customer-support')">
+      <ion-icon slot="start" src="../../../assets/svg_icon/speech-bubble.svg"></ion-icon>
+      <ion-label>Customer Support</ion-label>
+    </ion-item>-->
+    <ion-item lines="full" (click)="viewPage('/language-list')">
+      <ion-icon slot="start" src="../../../assets/svg_icon/translate.svg"></ion-icon>
+      <ion-label>{{ 'SettingsPage.text2' | translate }}</ion-label>
+    </ion-item> 
+    <ion-item lines="full" (click)="logOut()">
+      <ion-icon slot="start" src="../../../assets/svg_icon/logout.svg"></ion-icon>
+      <ion-label>{{ 'ProfilePage.text3' | translate }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

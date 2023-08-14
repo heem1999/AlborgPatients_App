@@ -1,0 +1,168 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title *ngIf="data.length==0">{{ 'SelectServicePage.text3' | translate }}</ion-title>
+
+    <div *ngIf="lan == 'En'&&data.length>0">
+      <ion-searchbar
+        radious-searchbar-left
+        placeholder="{{ 'HomePage.text12' | translate }}"
+        clearIcon="no"
+        mode="md"
+        [(ngModel)]="term"
+      ></ion-searchbar>
+    </div>
+  
+    <div *ngIf="lan !== 'En'&&data.length>0">
+      <ion-searchbar
+        radious-searchbar-right
+        placeholder="{{ 'HomePage.text12' | translate }}"
+        clearIcon="no"
+        mode="md"
+        [(ngModel)]="term"
+      ></ion-searchbar>
+    </div>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="data.length>0">
+    <div class="segment-section" *ngIf="lan == 'En'">
+      <div
+        class="segment-button-left active"
+        *ngFor="let item of Clinical_units"
+        (click)="changecat(item?.id)"
+      >
+        {{item?.name_en}}
+      </div>
+    </div>
+    <div class="segment-section" *ngIf="lan !== 'En'">
+      <div
+        class="segment-button-right active"
+        *ngFor="let item of Clinical_units"
+        (click)="changecat(item?.id)"
+      >
+        {{item?.name_ar}}
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of data;">
+    <div class="title-section" [id]="item.clinical_id">
+      <h5 >{{getClinicalName(item.clinical_id)}}</h5>
+    </div>
+    <div class="ion-padding-horizontal service-list">
+      <div *ngIf="lan == 'En'">
+        <ion-item
+          *ngFor="let subitem of item.services |filter:term">
+          <ion-label>
+              <h5 class="ion-text-wrap">
+                {{subitem.service?.name_en  }}
+              </h5>
+              <p class="Price-text">
+               Price : {{subitem?.current_price | number: '2.'}} {{ 'SDG' | translate }}
+              </p>
+              <p class="duration-text">
+                {{ 'Duration' | translate }} : {{subitem.service?.processing_time }} {{ 'Min' | translate }}
+                 <ion-icon class="circle-icon" name="ellipse"> </ion-icon>
+              </p>       
+              <p class="detail-line" (click)="serviceDetails(subitem.service)">
+                <ion-icon class="detail-icon-en" name="information-circle-outline" ></ion-icon>
+                Service details
+              </p>
+             
+          </ion-label>
+          <div class="styled-input-single-EN" (click)="change(subitem.service,subitem)">
+            <input
+              type="checkbox"
+              name="fieldset-1"
+              [checked]="subitem.service?.checked"
+              [id]="subitem.service?.name_en"
+              disabled
+            />
+            <label [for]="subitem.service?.name_en"></label>
+          </div>
+        </ion-item>
+       
+      </div>
+      <div *ngIf="lan !== 'En'">
+        <ion-item
+          *ngFor="let subitem of item.services |filter:term">
+          <ion-label>
+              <h5 class="ion-text-wrap">
+                {{subitem.service?.name_ar  }}
+              </h5>
+              <p class="Price-text">
+                السعر : {{subitem?.current_price | number: '2.'}} {{ 'SDG' | translate }}
+              </p>
+       
+              <p class="duration-text">
+                {{ 'Duration' | translate }} : {{subitem.service?.processing_time }} {{ 'Min' | translate }}
+                <ion-icon class="circle-icon" name="ellipse"> </ion-icon>
+              </p>         
+              <p class="detail-line" (click)="serviceDetails(subitem.service)">
+                <ion-icon class="detail-icon-ar" name="information-circle-outline" ></ion-icon>
+                تفاصيل الخدمة
+              </p>
+          </ion-label>
+          <div class="styled-input-single-EN" (click)="change(subitem.service,subitem)">
+            <input
+              type="checkbox"
+              name="fieldset-1"
+              [checked]="subitem.service?.checked"
+              [id]="subitem.service?.name_ar"
+              disabled
+            />
+            <label [for]="subitem.service?.name_ar"></label>
+          </div>
+        </ion-item>
+       
+      </div>
+      </div>
+  </div>
+  
+  <ion-card *ngIf="message">
+    <ion-card-header *ngIf="lan == 'En'">
+      <ion-card-title>Attention!</ion-card-title>
+      <ion-card-subtitle color="tertiary">{{ api.selectedPayerData['name_en'] }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-header *ngIf="lan !== 'En'">
+      <ion-card-title>إِنتبه!</ion-card-title>
+      <ion-card-subtitle color="tertiary">{{ api.selectedPayerData['name_ar'] }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ message }}
+    </ion-card-content>
+  </ion-card>
+
+ <!-- <div class="total-section" *ngIf="lan == 'En'">
+    <h6 class="total-label ion-no-margin">{{ 'SelectServicePage.text1' | translate }}</h6>
+    <p class="duration-text ion-no-margin">
+       {{ 'Duration' | translate }} : {{getTotal.duration}} {{ 'Min' | translate }}
+    </p>
+    <p class="amount-text-EN ion-no-margin">{{currency}}{{getTotal.temp}}</p>
+  </div>
+  <div class="total-section" *ngIf="lan !== 'En'">
+    <h6 class="total-label ion-no-margin">{{ 'SelectServicePage.text1' | translate }}</h6>
+    <p class="duration-text ion-no-margin">
+       {{ 'Duration' | translate }} : {{getTotal.duration}} {{ 'Min' | translate }}
+    </p>
+    <p class="amount-text-AR ion-no-margin">{{getTotal.temp}}{{ 'SDG' | translate }}</p>
+  </div>-->
+</ion-content>
+<ion-footer >
+  <ion-button
+    expand="full"
+    class="ion-no-margin btn-general"
+    (click)="continue()"
+  >
+    {{ 'SelectTimePage.text3' | translate }}
+  </ion-button>
+</ion-footer>

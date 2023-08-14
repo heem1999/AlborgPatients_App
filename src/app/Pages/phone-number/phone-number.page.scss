@@ -1,0 +1,24 @@
+ion-header {
+    ion-toolbar {
+      border-radius: 0px 0px 20px 20px;
+      --background: var(--ion-color-yellow);
+    }
+  }
+  
+  ion-content {
+    --padding-top: 10px;
+
+    .info-text{
+        font-family: "Fivo_sans_regular";
+        color: var(--ion-color-blue);
+        margin: 30px 0px;
+    }
+
+    .btn-general {
+      font-size: 16px;
+      height: 50px;
+      margin-top: 3rem;
+    }
+    
+  }
+  

@@ -1,0 +1,79 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="toolbar-en" *ngIf="lan == 'En'">
+    <h3>{{ 'HomePage.text1' | translate }} {{rdata?.name}}</h3>
+    <p class="container2"><b>{{ 'HomePage.text2' | translate }}</b></p>
+    <ion-buttons slot="end" >
+      <ion-button color="tertiary" (click)="changeLang()">
+        <ion-icon slot="icon-only" src="../../../assets/svg_icon/translate.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   <!-- <ion-buttons slot="end" >
+      <ion-button color="light">
+        <ion-badge class="badge-en"  slot="start">9</ion-badge>
+        <ion-icon slot="icon-only" name="gift-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+  </ion-toolbar>
+  <ion-toolbar class="toolbar-ar" *ngIf="lan !== 'En'">
+    <h3>{{ 'HomePage.text1' | translate }} {{rdata?.name}}</h3>
+    <p class="container2"><b>{{ 'HomePage.text2' | translate }}</b></p>
+    <ion-buttons slot="end" >
+      <ion-button color="tertiary" (click)="changeLang()">
+        <ion-icon slot="icon-only" src="../../../assets/svg_icon/translate.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end" >
+      <ion-button color="light">
+        <ion-badge class="badge-ar" color="danger" slot="start">9</ion-badge>
+        <ion-icon slot="icon-only" name="gift-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" id="refresher" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-row *ngIf="!term" >
+    <ion-col (click)="viewPage('Home Service')" size="6">
+        <ion-card class="container2">
+          <img src="../../../assets/svg_image/home-visit.svg" />
+          <ion-card-header>
+            <ion-card-subtitle *ngIf="lan == 'En'"> Home Service</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="lan !== 'En'"> خدمة منزلية</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+    </ion-col>
+    <ion-col (click)="viewPage('My Requests')" size="6">
+      <ion-card class="container2">
+        <img src="../../../assets/svg_image/briefcase-alt-svgrepo-com.svg" />
+        <ion-card-header>
+          <ion-card-subtitle *ngIf="lan == 'En'">My Requests</ion-card-subtitle>
+          <ion-card-subtitle *ngIf="lan !== 'En'">طلباتي</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+  </ion-col>
+  <ion-col (click)="viewPage('Tips & News')" size="6">
+    <ion-card class="container2">
+      <img src="../../../assets/svg_image/globe-svgrepo-com.svg" />
+      <ion-card-header>
+        <ion-card-subtitle *ngIf="lan == 'En'">Tips & News </ion-card-subtitle>
+        <ion-card-subtitle *ngIf="lan !== 'En'">نصائح وأخبار</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+</ion-col>
+<ion-col (click)="viewPage('About')" size="6">
+  <ion-card class="container2">
+    <img src="../../../assets/svg_image/alert-hexagon-svgrepo-com.svg" />
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="lan == 'En'">About Us</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="lan !== 'En'">من نحن</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-col>
+  </ion-row>
+ 
+</ion-content>

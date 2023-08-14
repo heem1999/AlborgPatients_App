@@ -1,0 +1,118 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>{{ 'SalonDetailPage.text6' | translate}}</ion-title>
+  </ion-toolbar>
+  <div *ngIf="lan == 'En'">
+    <ion-searchbar
+      radious-searchbar-left
+      placeholder="{{ 'HomePage.text9' | translate }}"
+      clearIcon="no"
+      mode="md"
+      [(ngModel)]="term"
+    ></ion-searchbar>
+  </div>
+
+  <div *ngIf="lan !== 'En'">
+    <ion-searchbar
+      radious-searchbar-right
+      placeholder="{{ 'HomePage.text9' | translate }}"
+      clearIcon="no"
+      mode="md"
+      [(ngModel)]="term"
+    ></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-refresher slot="fixed" id="refresher" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="option-list">
+    <div class="option2">
+    
+       <b>{{ 'SortModal1Page.text7' | translate }}:</b>
+    </div>
+    
+    <div  *ngIf="lan == 'En'" class="option" (click)="presentCategoryModal()">
+      {{type.name_en}} <ion-icon name="chevron-down"></ion-icon>
+    </div>
+    <div  *ngIf="lan !== 'En'" class="option" (click)="presentCategoryModal()">
+      {{type.name_ar}} <ion-icon name="chevron-down"></ion-icon>
+    </div>
+  </div>
+  <!-- <h5 class="info-title">Result for Beauty Salon in UK</h5> -->
+  <div no-data *ngIf="data?.length == 0">
+    <img src="../../../assets/Images/no-data-icon-10.jpg" alt="no data" />
+  </div>
+ 
+  
+  <div [class]="lan !== 'En'?'service-div-ar':'service-div-en'" *ngFor="let item of data?.Payers  |filter:term" >
+    <h5 class="service-name" *ngIf="lan == 'En'">
+      {{item?.name_en}} 
+      <span class="ion-float-right">
+        <ion-icon name="arrow-forward-circle-outline" slot="icon-only" color="secondary" (click)="selectServicess(item)"></ion-icon></span> 
+    </h5>
+    <h5 class="service-name" *ngIf="lan !== 'En'">
+      {{item?.name_ar}} 
+      <span class="ion-float-left">
+        <ion-icon name="arrow-forward-circle-outline" slot="icon-only" color="secondary" (click)="selectServicess(item)"></ion-icon></span> 
+    </h5>
+    <p class="emp_lbl">
+      {{ 'ConfirmPage.text4' | translate }}
+      <ion-button class="arrow_btn" (click)="item.showContract = !item.showContract">
+        <ion-icon
+          [name]="item.showContract ? 'chevron-up':'chevron-down'"
+        ></ion-icon>
+      </ion-button>
+    </p>
+  
+    <p *ngIf="item?.contracts.length==0" class="no_data_p">
+      {{ 'HomePage.text5' | translate }}
+    </p>
+    <div *ngIf="lan == 'En'">
+      <div class="employee_div-EN" *ngIf="item?.showContract">
+        <ion-row>
+          <ion-col
+            size="12"
+            *ngFor="let contract of item?.contracts">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon> {{contract?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngIf="lan !== 'En'">
+      <div class="employee_div-AR" *ngIf="item?.showContract">
+        <ion-row>
+          <ion-col
+            size="12"
+            *ngFor="let contract of item?.contracts">
+            <div class="info_div">
+              
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>{{contract?.name_ar}}</h3>
+            </div>
+          </ion-col>
+         
+        </ion-row>
+      </div>
+    </div>
+ 
+  </div>
+  <!--
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" mode="ios">
+    <ion-fab-button (click)="viewInMap()">
+      <ion-icon src="../../../assets/svg_icon/awesome-map.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  -->
+  
+</ion-content>

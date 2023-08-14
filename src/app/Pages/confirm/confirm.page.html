@@ -1,0 +1,251 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button *ngIf="!api.showOrderDetails"
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+      <ion-button color="tertiary" (click)="closePage()" *ngIf="api.showOrderDetails">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+    <ion-title header-title>{{ 'ConfirmPage.text1' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <div *ngIf="serviceList.length>0">
+    <h5 class="info-title">
+      <ion-icon
+        class="discount-icon"
+        src="../../../assets/svg_icon/atoms-medical-svgrepo-com.svg"
+      ></ion-icon>
+      {{ 'ConfirmPage.text3' | translate }}
+
+      <div class="draw-line"></div>
+    </h5>
+
+    <div class="service-div-en" *ngIf="lan == 'En'">
+      <ion-item *ngFor="let subitem of serviceList">
+        <ion-label>
+          <h5>{{subitem.service?.name_en }}</h5>
+          <p class="Price-text">
+            Price : {{subitem?.current_price | number: '2.'}} {{ 'SDG' |
+            translate }}
+          </p>
+          <p class="duration-text">
+            {{ 'Duration' | translate }} : {{subitem.service?.processing_time }}
+            {{ 'Min' | translate }}
+          </p>
+        </ion-label>
+      </ion-item>
+      <!-- bill details -->
+      <h5 class="info-title">
+        {{ 'ConfirmPage.text6' | translate }}
+        <div class="draw-line"></div>
+      </h5>
+      <!-- total amount message if attachment -->
+      <p class="Price-text" *ngIf="Attachments.length>0">
+        The total price will be calculated after validating your attachments.
+      </p>
+
+      <!-- total amount if no attachment -->
+      <div *ngIf="Attachments.length==0">
+        <div *ngIf="lan == 'En'">
+          <p class="total-text">
+            {{ 'ConfirmPage.text7' | translate }}
+            <span class="ion-float-right"
+              >{{total | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text discount-text">
+            {{ 'ConfirmPage.text8' | translate }}
+            <span class="ion-float-right"
+              >-{{discount}}{{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text to-pay">
+            {{ 'ConfirmPage.text9' | translate }}
+            <span class="ion-float-right"
+              >{{total - discount | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+        </div>
+        <div *ngIf="lan !== 'En'">
+          <p class="total-text">
+            {{ 'ConfirmPage.text7' | translate }}
+            <span class="ion-float-left"
+              >{{total | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text discount-text">
+            {{ 'ConfirmPage.text8' | translate }}
+            <span class="ion-float-left"
+              >-{{discount}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text to-pay">
+            {{ 'ConfirmPage.text9' | translate }}
+            <span class="ion-float-left"
+              >{{total - discount | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="service-div-ar" *ngIf="lan !== 'En'">
+      <ion-item *ngFor="let subitem of serviceList">
+        <ion-label>
+          <h5>{{subitem.service?.name_ar }}</h5>
+          <p class="Price-text">
+            السعر : {{subitem?.current_price | number: '2.'}} {{ 'SDG' |
+            translate }}
+          </p>
+          <p class="duration-text">
+            {{ 'Duration' | translate }} : {{subitem.service?.processing_time }}
+            {{ 'Min' | translate }}
+          </p>
+        </ion-label>
+      </ion-item>
+      <!-- bill details -->
+      <h5 class="info-title">
+        {{ 'ConfirmPage.text6' | translate }}
+        <div class="draw-line"></div>
+      </h5>
+      <!-- total amount message if attachment -->
+      <p class="Price-text" *ngIf="Attachments.length>0">
+        سيتم احتساب السعر الإجمالي بعد التحقق من صحة المرفقات الخاصة بك.
+      </p>
+
+      <!-- total amount if no attachment -->
+      <div *ngIf="Attachments.length==0">
+        <div *ngIf="lan == 'En'">
+          <p class="total-text">
+            {{ 'ConfirmPage.text7' | translate }}
+            <span class="ion-float-right"
+              >{{total | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text discount-text">
+            {{ 'ConfirmPage.text8' | translate }}
+            <span class="ion-float-right"
+              >-{{discount}}{{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text to-pay">
+            {{ 'ConfirmPage.text9' | translate }}
+            <span class="ion-float-right"
+              >{{total - discount | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+        </div>
+        <div *ngIf="lan !== 'En'">
+          <p class="total-text">
+            {{ 'ConfirmPage.text7' | translate }}
+            <span class="ion-float-left"
+              >{{total | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text discount-text">
+            {{ 'ConfirmPage.text8' | translate }}
+            <span class="ion-float-left"
+              >-{{discount}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+          <p class="total-text to-pay">
+            {{ 'ConfirmPage.text9' | translate }}
+            <span class="ion-float-left"
+              >{{total - discount | number: '2.'}} {{ 'SDG' | translate }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attachments -->
+  <h5 class="info-title">
+    <ion-icon
+      class="discount-icon"
+      src="../../../assets/svg_icon/attach-svgrepo-com.svg"
+    ></ion-icon>
+    {{ 'ConfirmPage.text11' | translate }} &nbsp;&nbsp;&nbsp;
+    <ion-icon
+      (click)="presentActionSheet()"
+      class="discount-icon"
+      src="../../../assets/svg_icon/add-note-svgrepo-com.svg"
+    ></ion-icon>
+
+    <div class="draw-line"></div>
+    <p class="duration-text" *ngIf="lan == 'En'">
+      Attach insurance card, prescription, etc...
+    </p>
+    <p class="duration-text" *ngIf="lan !== 'En'">
+      إرفاق بطاقة تأمين ، وصفة طبية ، إلخ ...
+    </p>
+  </h5>
+
+  <div class="service-div-en" *ngIf="lan == 'En'">
+    <div class="container">
+      <div class="scroll" scrollX="true">
+        <div *ngFor="let sub of Attachments; let i=index;">
+          <ion-thumbnail class="thumbnail-en">
+            <img (click)="imageViewer(sub,i)" [src]="sub" />
+          </ion-thumbnail>
+        </div>
+      </div>
+
+      <p class="duration-text" *ngIf="Attachments.length>0">
+        Total Attachments ({{ Attachments.length }})
+      </p>
+    </div>
+
+    <p class="duration-text" *ngIf="Attachments.length==0">
+      There are no files attached...
+    </p>
+  </div>
+
+  <div class="service-div-ar" *ngIf="lan !== 'En'">
+    <div class="container">
+      <div class="scroll" scrollX="true">
+        <div *ngFor="let sub of Attachments; let i=index;">
+          <ion-thumbnail class="thumbnail-ar">
+            <img (click)="imageViewer(sub,i)" [src]="sub" />
+          </ion-thumbnail>
+        </div>
+      </div>
+
+      <p class="duration-text" *ngIf="Attachments.length>0">
+        Total Attachments ({{ Attachments.length }})
+      </p>
+    </div>
+
+    <p class="duration-text" *ngIf="Attachments.length==0">
+      لا يوجد ملفات مرفقة...
+        </p>
+  </div>
+ 
+  <!--
+  <h5 class="info-title" (click)="applyPromo()">
+    <ion-icon
+      class="discount-icon"
+      src="../../../assets/svg_icon/discount.svg"
+    ></ion-icon>
+    {{ 'ConfirmPage.text5' | translate }}
+
+    <div class="draw-line"></div>
+  </h5>
+-->
+</ion-content>
+<ion-footer *ngIf="!api.showOrderDetails">
+  <ion-button [disabled]="serviceList.length==0 && Attachments.length==0"
+    expand="full"
+    class="ion-no-margin btn-general"
+    (click)="bookNow()"
+  >
+    {{ 'ConfirmPage.text10' | translate }}
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-searchbar id="txtHome" [placeholder]=searchText></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--
+
+  <ion-fab vertical="bottom">
+    <ion-card>
+      <div class="spin" align="center">
+        <ion-spinner color="danger" *ngIf="DestinationAddress==''" name="bubbles"></ion-spinner>
+        <ion-input type="text" [placeholder]=placename [(ngModel)]=locationName></ion-input>
+        <ion-input type="text" [placeholder]=DestinationAddress disabled="false"></ion-input>
+        <ion-button [disabled]="DestinationAddress==''||locationName==''" (click)="savelocation()" expand="block">
+          <strong>{{order_details_main6}}</strong> </ion-button>
+      </div>
+    </ion-card>
+  </ion-fab>
+-->
+  <ion-fab vertical="bottom">
+    <div class="spin" align="center">
+      <ion-button [disabled]="DestinationAddress==''||locationName==''" (click)="Selectedlocation()" expand="block">
+        <strong>{{order_details_main6}}</strong> </ion-button>
+    </div>
+  </ion-fab>
+
+  <ion-fab size="small" vertical="center" horizontal="start" slot="fixed">
+    <ion-fab-button color="dark" icon-only (click)="checkGPSPermission()">
+      <ion-icon color="munjizwhite" name="locate"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div #map id="map"></div>
+
+</ion-content>

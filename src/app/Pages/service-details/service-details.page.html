@@ -1,0 +1,127 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button
+        defaultHref="tabs/home"
+        icon="chevron-back"
+        mode="md"
+        class="btn-back"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-text color="light" *ngIf="lan == 'En'" style="white-space: normal;"> <b>{{ data.service.name_en }}</b></ion-text>
+    <ion-text color="light" *ngIf="lan !== 'En'" style="white-space: normal;"> <b>{{ data.service.name_ar }}</b></ion-text>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+<br>
+  
+  <div [class]="lan !== 'En'?'service-div-ar':'service-div-en'" *ngFor="let item of testData" >
+    <h5 class="service-name" *ngIf="lan == 'En'">
+      {{item?.name_en}} 
+    </h5>
+    <h5 class="service-name" *ngIf="lan !== 'En'">
+      {{item?.name_ar}} 
+    </h5>
+    <p class="emp_lbl">
+      {{ 'SelectServicePage.text22' | translate }}
+      <ion-button class="arrow_btn" (click)="item.showContract = !item.showContract">
+        <ion-icon
+          [name]="item.showContract ? 'chevron-up':'chevron-down'"
+        ></ion-icon>
+      </ion-button>
+    </p>
+
+    <div *ngIf="lan == 'En'">
+      <div class="employee_div-EN" *ngIf="item?.showContract">
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> Lab unit: </b></ion-text>
+                {{item?.clinical_unit?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> Sample condition: </b></ion-text>
+                {{item?.sample_condition?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> Sample type: </b></ion-text>
+                {{item?.sample_type?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> Unit of measurement: </b></ion-text>
+                {{item?.unit?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngIf="lan !== 'En'">
+      <div class="employee_div-AR" *ngIf="item?.showContract">
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> الوحدات المعملية: </b></ion-text>
+                {{item?.clinical_unit?.name_ar}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> حالة العينة: </b></ion-text>
+                {{item?.sample_condition?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> نوع العينة: </b></ion-text>
+                {{item?.sample_type?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12">
+            <div class="info_div">
+              <h3 class="name"> <ion-icon class="circle-icon" name="ellipse"></ion-icon>
+                 <ion-text color="secondary"> <b> وحدة قياس: </b></ion-text>
+                {{item?.unit?.name_en}}</h3>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  
+  </div>
+
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-content>
+ <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
+    [styles]="styles">
+    <agm-marker *ngFor="let m of data; let i = index" [latitude]="m?.lat" [longitude]="m?.lng"
+      iconUrl="../../../assets/svg_icon/shope-pin.svg">
+     <agm-info-window>
+        <strong>{{m.label}}</strong>
+      </agm-info-window> 
+    </agm-marker>
+  </agm-map>
+  <ion-button class="btn-close" (click)="closePage()">
+    <ion-icon name="close"></ion-icon>
+  </ion-button>
+  
+  <!--<div class="beauty-salons-section">
+
+    <div class="main-section" *ngFor="let item of data" (click)="viewDetail(item?.id)">
+      <div class="image-section">
+        <img [src]="item.imageUri" alt="">
+        <div class="fix-label" *ngIf="item.for_who == 1">
+          Women only
+        </div>
+        <div class="fix-label" *ngIf="item.for_who == 2">
+          Man only
+        </div>
+      </div>
+      <h6 class="salon-name">{{item.name}}</h6>
+      <p class="salon-address">{{item.address}}</p>
+      <p class="distance">
+        <ion-icon src="../../../assets/svg_icon/pin.svg"></ion-icon> {{item?.distance}}km
+      </p>
+    </div>
+  </div>-->
+</ion-content>

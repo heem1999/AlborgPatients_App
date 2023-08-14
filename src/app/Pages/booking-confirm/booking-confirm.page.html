@@ -1,0 +1,132 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-margin">
+      <ion-back-button defaultHref="tabs/home" icon="chevron-back" mode="md" class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title header-title>Booking Confirm</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="salon-detail ion-padding-horizontal">
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img [src]="data?.branch?.imageUri" />
+      </ion-thumbnail>
+      <ion-label>
+        <h5>{{data?.branch?.name}}</h5>
+        <p>{{data?.branch?.address}}</p>
+      </ion-label>
+    </ion-item>
+    <h5 class="date-title">Appointment Date &Time</h5>
+
+    <p>{{data?.start_time | date :'dd MMMM yyyy'}} - {{data?.start_time | date :'hh:mm a'}}</p>
+    <!-- <div class="option-section">
+      <div class="option" (click)="viewDirection()">
+        <div class="icon-section">
+          <ion-icon class="pin-icon" src="../../../assets/svg_icon/pin.svg"></ion-icon>
+        </div>
+        <p>Direction</p>
+      </div>
+      <div class="option">
+        <div class="icon-section">
+          <ion-icon class="calendar-icon" src="../../../assets/svg_icon/calendar.svg"></ion-icon>
+        </div>
+        <p>Reschedule</p>
+      </div>
+      <div class="option" (click)="cancelBooking()">
+        <div class="icon-section">
+          <ion-icon class="cancel-icon" name="close"></ion-icon>
+        </div>
+        <p>Cancel</p>
+      </div>
+    </div> -->
+  </div>
+  <!-- <div class="ion-padding-horizontal service-list">
+    <h5 class="info-title">Selected Services</h5>
+    <div class="service-div" *ngFor="let item of serviceList">
+      <h5 class="service-name">
+        {{item.name}} <span class="ion-float-right">${{item.price}}</span>
+      </h5>
+      <p class="duration-text">
+        Duration : {{item.duration}} Min
+        <ion-icon class="circle-icon" name="ellipse"></ion-icon> Women only
+      </p>
+      <p class="description ion-text-wrap">
+        Looking for a quick haircut? This is the one for you.
+      </p>
+    </div>
+
+    <h5 class="info-title">Bill Detail</h5>
+    <p class="total-text">Total Charge <span class="ion-float-right">$85</span></p>
+    <p class="total-text discount-text">Total Discount <span class="ion-float-right">-$43</span></p>
+    <hr>
+    <h5 class="info-title ion-no-margin">To Pay <span class="ion-float-right">$42</span></h5>
+    <p class="duration-text">Duration : 120Min</p>
+  </div> -->
+  <div class="ticket ion-margin-horizontal">
+    <div class="ticket__wrapper">
+      <div class="ticket__header">
+        <h4 class="title">
+          <h5>{{data?.branch?.name}} <span class="ion-float-right">{{data?.currency}}{{data?.total}}</span></h5>
+        </h4>
+        <p class="info-text">{{data?.branch?.address}}</p>
+      </div>
+    </div>
+    <div class="ticket__divider">
+      <div class="ticket__notch"></div>
+      <div class="ticket__notch ticket__notch--right"></div>
+    </div>
+    <div class="ticket__body">
+      <section class="ticket__section">
+        <div class="date-section">
+          <div class="tittle_div">
+            <p class="info-text">Services<span class="ion-float-end">Price</span></p>
+            <p class="date-label" *ngFor="let item of data?.services">
+              {{item?.service?.name}}
+              <span class="ion-float-end">{{item?.service?.currency}}{{item?.service?.price}}</span>
+            </p>
+          </div>
+        </div>
+        <div class="date-section">
+          <div>
+            <p class="info-text">Total Duration</p>
+            <p class="date-label">{{data?.duration}}</p>
+          </div>
+          <div>
+            <p class="info-text">Payment Status</p>
+            <p class="date-label" *ngIf="data?.payment_status== 0">Pending</p>
+            <p class="date-label" *ngIf="data?.payment_status==1">Complete</p>
+          </div>
+        </div>
+        <div class="date-section">
+          <div>
+            <p class="info-text">Booking Number</p>
+            <p class="date-label">{{data?.booking_id}}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- <div class="ticket__divider" *ngIf="!this.data.review">
+      <div class="ticket__notch"></div>
+      <div class="ticket__notch ticket__notch--right"></div>
+    </div>
+    <div class="ticket__footer" *ngIf="!this.data.review">
+      <div class="ion-padding-top ion-padding-horizontal">
+        <div class="rating-bar">
+          <ion-icon name="star" [ngClass]="rdata?.star >= 1 ? 'active':''" (click)="rdata.star=1"></ion-icon>
+          <ion-icon name="star" [ngClass]="rdata?.star >= 2 ? 'active':''" (click)="rdata.star=2"></ion-icon>
+          <ion-icon name="star" [ngClass]="rdata?.star >= 3 ? 'active':''" (click)="rdata.star=3"></ion-icon>
+          <ion-icon name="star" [ngClass]="rdata?.star >= 4 ? 'active':''" (click)="rdata.star=4"></ion-icon>
+          <ion-icon name="star" [ngClass]="rdata?.star >= 5 ? 'active':''" (click)="rdata.star=5"></ion-icon>
+        </div>
+        <div class="ion-padding">
+          <ion-textarea rows="4" placeholder="Add You Review..." [(ngModel)]="rdata.cmt"></ion-textarea>
+        </div>
+      </div>
+      <ion-button expand="block" mode="md" class="ion-no-margin btn-general btn-send" (click)="review()"
+        [disabled]="data?.status !=3">SEND
+      </ion-button>
+    </div> -->
+  </div>
+</ion-content>

@@ -1,0 +1,30 @@
+$cutout-size: 1rem;
+ion-header {
+  background: var(--ion-color-yellow);
+  ion-toolbar {
+    --background: var(--ion-color-yellow);
+  }
+}
+
+.featured-venues-section {
+    padding-bottom: 5px;
+    img {
+      display: block;
+      width: 100%;
+      //height: 159px;
+      border-radius: 5px 5px 0px 0px;
+    }
+    .salon-name {
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-top: 8px;
+      margin-bottom: 3px;
+    }
+    .salon-address {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+  }

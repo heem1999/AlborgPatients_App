@@ -1,0 +1,216 @@
+{    
+    "SigninPage": {
+        "text1": "Signin to continue",
+        "text2": "Email",
+        "text3": "Password",
+        "text4": "Forgot Password?",
+        "text5": "Signin",
+        "text6": "Don't have an account?",
+        "text7": "Signup Now",
+        "text8": "Enter your mobile number without(0)"
+       
+    },
+    "SignupPage": {
+        "text1": "Signup to continue",
+        "text2": "Name",
+        "text3": "Enter your mobile number without(0)",
+        "text4": "Email",
+        "text5": "Password",
+        "text6": "Signup",
+        "text7": "Already have an account?",
+        "text8": "Signin Now",
+        "text10": "Save",
+        "text9":"I read and agree to the privacy policy, and booking terms.",
+        "text11":"I have read the booking instruction.",
+        "text12":", Go home",
+        "text13":"Phone"
+       
+    },
+    "HomePage": {
+        "text1": "Hi,",
+        "text2": "Al Borg Diagnostics, Accuracy, Fast and Reliable",
+        "text3": "Search for a service or venue",
+        "text4": "Popular Categories",
+        "text5": "No data",
+        "text6": "More Categories",
+        "text7": "Featured Venues",
+        "text9": "Search by payer name...",
+        "text12": "Search by service name...",
+        "text8": "All Centers",
+        "text10": "Featured centers"
+    },
+    "SettingsPage":{
+        "text": "Settings",
+        "text1": "Notifications",
+        "text2": "Language",
+        "text3": "Change Password",
+        "text4": "Privacy Policy"
+    },
+    "ProfilePage": {
+        "text1": "My Requests",
+        "text2": "About Us",
+        "text4": "Profile",
+        "text3": "Logout",
+        "text44": "Branch details",
+        "text22": "Our Branches"
+    },
+
+    "ChangePasswordPage": {
+        "text1": "Change Password",
+        "text2": "Reset Your password",
+        "text3": "change password",
+        "text4": "Current Password",
+        "text5": "New Password",
+        "text6": "Confirm Password",
+        "text7": "Sex",
+        "text8": "Male",
+        "text9": "Female"
+
+    },
+    "MyAppointmentPage":{
+        "text1": "Upcoming",
+        "text2": "Past",
+        "text3": "Cancel",
+        "text4": "No Upcoming Appointments",
+        "text5": "Don't hesitate and explore!",
+        "text6": "Any appointments you make will show up here",
+        "text7": "Request now!",
+        "text8": "CONFIRMED",
+        "text9": "PENDING",
+        "text10": "Total",
+        "text11": "No Completed Appointments",
+        "text12": "Request now!",
+        "text13": "COMPLETED",
+        "text14": "No Cancel Appointments",
+        "text15": "CANCELED",
+        "text16": "View details",
+        "text17": "For final confirm please make your payment process.",
+        "text18": "INITIAL CONFIRMATION",
+        "text19": "Rejected"
+    },
+    "SDG": "SDG",
+    "loading": "Please wait...",
+    "IntroPageGetStarted":"Get Started",
+    "SalonDetailPage":{
+        "text6": "Select The Payer Name",
+        "text11": "View services & Book now",
+        "text1": "Book Now",
+        "text2": "Review",
+        "text3": "Unisex",
+        "text4": "Women Only",
+        "text5": "Men Only"     
+    },
+    "SelectTimePage":{
+        "text1": "Select visit day",
+        "text2": "Choose Time",
+        "text3": "Attach Prescription or Continue" ,
+        "text5": "Update" ,
+        "text4": "Ok"       
+    },
+    "Duration": "Duration",
+    "Min": "Min",
+    "SelectServicePage":{
+        "text1": "Total Claim",
+        "text2": "Lab Units",
+        "text22": "Test details",
+        "text3": "Payer Services"  
+    },
+    "ConfirmPage":{
+        "text1": "Attach files & Review",
+        "text2": "Appointment Date & Time",
+        "text3": "Selected Services",
+        "text4": "Payer Contracts",
+        "text5": "Apply Promo Code",
+        "text6": "Bill Detail",
+        "text7": "Total Charge",
+        "text8": "Total Discount",
+        "text9": "To Pay",
+        "text10": "Continue",
+        "text12": "Order Details",
+        "text11": "Attach files"             
+    },
+    "PaymentPage":{
+        "text1": "Patient & Visit Info.",
+        "text2": "Patient Name",
+        "text3": "Patient Age",
+        "text4": "Patient Sex",
+        "text55": "Co-Patient Phones (for contact)",
+        "text5": "Phone1",
+        "text6": "Phone2",
+        "text7": "Visit Date",
+        "text9": "Notes",
+        "text11":"Patient visit location",
+        "text12":"Select Your city",
+        "text8":"Attach payment notification",
+        "text10":"View bank accounts"
+       
+
+    },
+    "SuccessModalPage":{
+        "text1": "The initial booking has been created successfully, please wait for the confirmation of your booking by the beauty center.",
+        "text2": "Booking Confirmed",
+        "text3": "Close"
+    },
+    "PastOrderDetailPage":{
+        "text1": "Order Details",
+        "text2": "Completed",
+        "text3": "Canceled",
+        "text4": "Services",
+        "text5": "Price",
+        "text6": "Total Duration",
+        "text7": "Payment Status",
+        "text8": "Unpaid",
+        "text9": "Request No.",
+        "text10": "SEND",
+        "text11":"Add Your Review...",
+        "text13": "Deposit paid",
+        "text14": "Cancel Request",
+        "text15": "Attachments",
+        "text16": "Lab Technician",
+        "text12":"attached"
+    },
+    "ForgotPasswordPage":{
+        "text1": "Forgot Password",
+        "text2": "Please enter your phone",
+        "text3": "Phone",
+        "text4": "We will send a verification code to your to your phone",
+        "text5": "registered Phone",
+        "text6": "Next"
+    },
+    "otpPage":{
+        "text1":"Please enter your verification code",
+        "text2":"You will receive a message containing a verification code in ",
+        "text3":"registered Phone",
+        "text4":"Done",
+        "text5":"Please enter a new password",
+        "text6":"Verification Code",
+        "text7":" to your phone",
+        "text8":"Uploaded date:",
+        "text88":"Approve",
+        "text9":"Payment notifications"
+
+    },
+    "SortModal1Page":{
+        "text1":"SORT BY",
+        "text2":"Top rated",
+        "text3":"Featured",
+        "text4":"Newest",
+        "text5":"Sort By Name",
+        "text6":"Near by me",
+        "text7":"FILTER BY"
+    },
+    "SalonBankAccountsPage":{
+        "text1":"Salon Bank Accounts",
+        "text2":""
+      
+    },
+    "OfferPage":{
+        "text1":"Discount",
+        "text2":"Apply",
+        "text3":"Expires",
+        "text4":"Offers"
+      
+    }
+    
+    
+}

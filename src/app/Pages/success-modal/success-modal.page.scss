@@ -1,0 +1,147 @@
+ion-header {
+  border-radius: 0px 0px 20px 20px;
+  background: var(--ion-color-yellow);
+  ion-toolbar {
+    --background: transparent;
+  }
+}
+ion-content{
+  
+   /* --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }*/
+    background-color: blue;
+    ion-button{
+      margin-bottom: 15px;
+    }
+    .scroll-content {
+      overflow-y: hidden;
+    }
+    
+    .text-section{
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 12px;
+        h4{
+            font-family: "Fivo_sans_medium";
+            color: var(--ion-color-blue);
+            margin-bottom: 5px;
+        }
+        h2{
+            font-size: 25px;
+            font-family: "Fivo_sans_medium";
+            color: var(--ion-color-blue);
+            margin-top: 0px;
+        }
+    }
+
+    .featured-venues-section {
+        padding-bottom: 5px;
+        img {
+          display: block;
+          width: 100%;
+          //height: 159px;
+          border-radius: 5px 5px 0px 0px;
+        }
+        .salon-name {
+          font-family: "Fivo_sans_medium";
+          color: var(--ion-color-blue);
+          margin-top: 8px;
+          margin-bottom: 3px;
+        }
+        .salon-address {
+          font-size: 14px;
+          font-family: "Fivo_sans_regular";
+          color: var(--ion-color-dark-blue);
+          margin-top: 0px;
+          margin-bottom: 5px;
+        }
+      }
+    
+
+      .featured-venues-ViewStatusInfo2 {
+        padding-bottom: 5px;
+        img {
+          display: block;
+          width: 100%;
+          //height: 159px;
+          border-radius: 5px 5px 0px 0px;
+        }
+        .salon-name {
+          font-family: "Fivo_sans_medium";
+          color: var(--ion-color-blue);
+          margin-top: 8px;
+          margin-bottom: 3px;
+        }
+        .salon-address {
+          font-size: 14px;
+          font-family: "Fivo_sans_regular";
+          color: var(--ion-color-dark-blue);
+          margin-top: 0px;
+          margin-bottom: 5px;
+        }
+      }
+       .container{
+        
+        background-color: #ab0048;
+         height: 100%;
+         width: 100%;
+         img {
+          //display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px 5px 0px 0px;
+        }
+       //  border-style: solid;
+        //border-color: red;
+       }
+
+
+       .header-row {
+        background: #DD4146;
+        color: #fff;
+        font-size: 15px;
+      }
+      
+      .header-row1 {
+      
+        font-size: 10px;
+      }
+      ion-col {
+        border: 1px solid #ECEEEF;
+      }
+      .container2 {
+        img {
+          height: 50%;
+          width: 50%;
+        }
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      .salon-name {
+        padding: 2rem;
+          font-family: "Fivo_sans_medium";
+          color: var(--ion-color-yellow);
+          //margin-top: 8px;
+          margin-bottom: 3px;
+        }
+
+
+        .service-name {
+          font-size: 18px;
+          font-family: "Fivo_sans_medium";
+          color: var(--ion-color-blue);
+          margin-bottom: 6px;
+          //margin-top: 0px;
+          span {
+            font-size: 16px;
+            margin-top: 1px;
+          }
+        }
+}

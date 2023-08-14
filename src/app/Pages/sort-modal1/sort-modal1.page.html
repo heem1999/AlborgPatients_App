@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title header-title>{{ 'SortModal1Page.text1' | translate }}</ion-title>
+    <ion-buttons slot="end" class="ion-no-margin">
+      <ion-button (click)="closeModal()" mode="md" fill="clear" class="btn-close">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-list class="ion-no-padding">
+    <ion-radio-group [value]="sort">
+      <ion-item mode="md" lines="full">
+        <ion-label>{{ 'SortModal1Page.text6' | translate }}</ion-label>
+        <ion-radio slot="start" value="{{ 'SortModal1Page.text6' | translate }}" mode="md" (click)="filter('Near by me',6)"></ion-radio>
+      </ion-item>
+
+      <ion-item mode="md" lines="full">
+        <ion-label>{{ 'SortModal1Page.text2' | translate }}</ion-label>
+        <ion-radio slot="start" value="{{ 'SortModal1Page.text2' | translate }}" mode="md" (click)="filter('Top rated',2)"></ion-radio>
+      </ion-item>
+
+      <ion-item mode="md" lines="full">
+        <ion-label>{{ 'SortModal1Page.text3' | translate }}</ion-label>
+        <ion-radio slot="start" value="{{ 'SortModal1Page.text3' | translate }}" mode="md" (click)="filter('Featured',3)"></ion-radio>
+      </ion-item>
+
+      <ion-item mode="md" lines="full">
+        <ion-label>{{ 'SortModal1Page.text4' | translate }}</ion-label>
+        <ion-radio slot="start" value="{{ 'SortModal1Page.text4' | translate }}" mode="md" (click)="filter('Newest',4)"></ion-radio>
+      </ion-item>
+
+      <ion-item mode="md" lines="none">
+        <ion-label>{{ 'SortModal1Page.text5' | translate }}
+        </ion-label>
+        <ion-radio slot="start" value="{{ 'SortModal1Page.text5' | translate }}" mode="md" (click)="filter('Sort By Name',5)"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

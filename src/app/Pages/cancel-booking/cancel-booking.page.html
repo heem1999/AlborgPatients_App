@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border"> 
+  <ion-toolbar>
+    <ion-title header-title>Are you sure <br>
+      you want to cancel?</ion-title>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" class="btn-close" (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-item mode="md" lines="none">
+    <ion-thumbnail slot="start"> 
+      <img src="../../../assets/Images/aductive_small.png" />
+    </ion-thumbnail>
+    <ion-label>
+      <h5>Addictive Beauty</h5>
+      <p>West minister Business Road, UK</p>
+      <p>16, April 2020 - 05:00 pm</p>
+      <div class="rating-bar">
+        <ion-icon name="star" class="active"></ion-icon>
+        <ion-icon name="star" class="active"></ion-icon>
+        <ion-icon name="star" class="active"></ion-icon>
+        <ion-icon name="star" class="active"></ion-icon>
+        <ion-icon name="star" class="active"></ion-icon>
+      </div>
+    </ion-label>
+  </ion-item>
+  <p class="note-text"><span>Note :</span> If you want to change the appointment time,
+    you can use the reschedule action instead.</p>
+</ion-content>
+<ion-footer>
+  <ion-button expand="full" mode="md" class="ion-no-margin btn-cencel" (click)="closeModal()">
+    Cancel
+  </ion-button>
+</ion-footer>

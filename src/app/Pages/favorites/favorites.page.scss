@@ -1,0 +1,387 @@
+ion-header {
+  border-radius: 0px 0px 20px 20px;
+  background: var(--ion-color-yellow);
+  ion-toolbar {
+    --background: transparent;
+  }
+  .segment-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px 10px;
+    a {
+      text-decoration: center;
+      color: var(--ion-color-white);
+      font-size: 16px;
+      font-family: "Fivo_sans_regular";
+      opacity: 0.6;
+    }
+    b {
+      color: var(--ion-color-tertiary);
+      font-size: 16px;
+    }
+    .active {
+      opacity: 1;
+    }
+  }
+}
+
+ion-content {
+
+  .service-div-en {
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    padding: 15px 7px 15px 12px;
+    border-left: 7px solid var(--ion-color-secondary2);
+    margin-bottom: 25px;
+    .service-name {
+      font-size: 18px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-bottom: 6px;
+      margin-top: 0px;
+      span {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+    .duration-text,
+    .description {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin: 5px 0px 0px 0px;
+      .circle-icon {
+        color: var(--ion-color-yellow);
+        font-size: 7px;
+        margin: 0px 6px;
+      }
+    }
+  }
+  .service-div-ar {
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    padding: 15px 7px 15px 12px;
+    border-right: 7px solid var(--ion-color-secondary2);
+    margin-bottom: 25px;
+    .service-name {
+      font-size: 18px;
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-bottom: 6px;
+      margin-top: 0px;
+      span {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+    .duration-text,
+    .description {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin: 5px 0px 0px 0px;
+      .circle-icon {
+        color: var(--ion-color-yellow);
+        font-size: 7px;
+        margin: 0px 6px;
+      }
+    }
+  }
+  .emp_lbl {
+    font-size: 13px;
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px 0px 0px;
+    .arrow_btn {
+      --background: transparent;
+      --color: var(--ion-color-secondary2);
+      --box-shadow: none;
+      --padding-start: 0;
+      --padding-end: 0;
+      --ripple-color: transparent;
+      height: 18px;
+    }
+  }
+  .employee_div-EN {
+    margin-top: 5px;
+    ion-col {
+      display: flex;
+      padding-left: 0;
+      img {
+        height: 37px;
+        width: 37px;
+        border-radius: 3px;
+        min-width: 37px;
+      }
+      .info_div {
+        margin-left: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .info_div_not_available_employee_data {
+        background-color: rgb(253, 219, 219);
+        margin-left: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .check_ic {
+        font-size: 14px;
+        position: absolute;
+        background-color: var(--ion-color-yellow);
+        bottom: 8px;
+        right: -1px;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 8px;
+        right: -1px;
+        ion-icon {
+          width: 10px;
+          height: 10px;
+          color: var(--ion-color-white);
+        }
+      }
+      .img_div {
+        position: relative;
+      }
+    }
+  }
+  .employee_div-AR {
+    margin-top: 5px;
+    ion-col {
+      display: flex;
+      padding-right: 0;
+      img {
+        height: 37px;
+        width: 37px;
+        border-radius: 3px;
+        min-width: 37px;
+      }
+      .info_div {
+        margin-right: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .info_div_not_available_employee_data {
+        margin-right: 15px;
+        padding-bottom: 5px;
+        width: 80%;
+        .name {
+          font-size: 14px;
+          color: var(--ion-color-blue);
+          font-family: "Fivo_sans_regular";
+          margin: 0;
+        }
+        ion-icon {
+          color: var(--gray);
+          font-size: 10px;
+        }
+        .rated_ic {
+          color: var(--ion-color-yellow);
+        }
+      }
+      .check_ic {
+        font-size: 14px;
+        position: absolute;
+        background-color: var(--ion-color-yellow);
+        bottom: 8px;
+        right: -1px;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 8px;
+        right: -1px;
+        ion-icon {
+          width: 10px;
+          height: 10px;
+          color: var(--ion-color-white);
+        }
+      }
+      .img_div {
+        position: relative;
+      }
+    }
+  }
+  
+  .option-list {
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    .option {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-white);
+      background-color: var(--ion-color-yellow);
+      margin-right: 16px;
+      padding: 6px 10px 7px;
+      border-radius: 20px;
+      ion-icon {
+        margin: 2px 0px -2px 5px;
+      }
+    }
+    .option2 {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-secondary2);
+      background-color: var(--ion-color-white);
+      margin-right: 16px;
+      padding: 6px 10px 7px;
+      border-radius: 20px;
+      margin: 2px 0px -2px 5px;
+      ion-icon {
+        background-color: var(--ion-color-white);
+        margin: 2px 0px -2px 5px;
+      }
+    }
+  }
+  .info-title {
+    font-family: "Fivo_sans_medium";
+    color: var(--ion-color-blue);
+    margin-top: 20px;
+  }
+  .salon-section {
+    margin-bottom: 25px;
+    .image-section {
+      height: 159px;
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        display: block;
+        border-radius: 5px 5px 0px 0px;
+      }
+      .btn-like {
+        margin: 0px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 15px;
+        font-size: 10px;
+        --color: rgba(0, 0, 0, 0.41);
+        --padding-start: 0em;
+        --padding-end: 0em;
+      }
+      .active-like {
+        --color: var(--ion-color-red);
+      }
+      .fix-label {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        font-size: 10px;
+        font-family: "Fivo_sans_light";
+        color: var(--ion-color-white);
+        background-color: var(--ion-color-yellow);
+        padding: 8px 10px 5px;
+        text-transform: uppercase;
+        border-radius: 5px 0px 0px 0px;
+      }
+    }
+    .salon-name {
+      font-family: "Fivo_sans_medium";
+      color: var(--ion-color-blue);
+      margin-top: 7px;
+      margin-bottom: 3px;
+    }
+    .salon-address {
+      font-size: 14px;
+      font-family: "Fivo_sans_regular";
+      color: var(--ion-color-dark-blue);
+      margin: 0px;
+    }
+    .star-icon-EN {
+      color: var(--ion-color-yellow);
+      font-size: 15px;
+      margin-bottom: -1px;
+      margin-right: 10px;
+    }
+    .star-icon-AR {
+      color: var(--ion-color-yellow);
+      font-size: 15px;
+      margin-bottom: -1px;
+      margin-left: 10px;
+    }
+    .everage-star-label,
+    .total-rating-label {
+      font-size: 14px;
+      font-family: "Fivo_sans_medium";
+    }
+    .everage-star-label {
+      color: var(--ion-color-blue);
+    }
+    .total-rating-label {
+      color: var(--ion-color-dark-blue);
+    }
+    .circle-EN {
+      height: 5px;
+      width: 5px;
+      background-color: var(--ion-color-yellow);
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 2px;
+    }
+    .circle-AR {
+      height: 5px;
+      width: 5px;
+      background-color: var(--ion-color-yellow);
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 20px;
+      margin-bottom: 2px;
+    }
+  }
+  ion-fab-button {
+    --background-activated: var(--ion-color-yellow);
+  }
+
+ 
+}
